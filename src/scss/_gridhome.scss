@@ -1,0 +1,12 @@
+.grid-home {
+  width: 95%;
+  margin: 10px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.cat {
+  background: #000;
+  color: #fff;
+}
