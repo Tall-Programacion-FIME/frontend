@@ -6,14 +6,10 @@ import { getBooks } from "../api/book";
 export default function Home() {
   const [data, setData] = useState([]);
 
+  // useEffect Hook, used for async functions
   useEffect(() => {
     getBooks().then(({ data }) => setData(data));
   }, [setData]);
 
-  console.log(data);
-  return (
-    <>
-      <GridBooks data={data}></GridBooks>
-    </>
-  );
+  return <GridBooks data={data}></GridBooks>;
 }
