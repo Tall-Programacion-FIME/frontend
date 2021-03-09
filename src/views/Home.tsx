@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import GridBooks from "../layout/GridBooks";
 
 import { getBooks } from "../api/book";
 
-export default async function Home() {
-  const data = await getBooks();
-  console.log(data.data);
+export default function Home() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    getBooks().then(({ data }) => setData(data));
+  }, [setData]);
+
+  console.log(data);
   return (
     <>
-      <GridBooks data={data.data}></GridBooks>
+      <GridBooks data={data}></GridBooks>
     </>
   );
 }
