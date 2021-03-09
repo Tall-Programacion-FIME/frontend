@@ -1,12 +1,14 @@
 import React from "react";
-import Header from "../components/Header";
 import GridBooks from "../layout/GridBooks";
 
-export default function Home() {
+import { getBooks } from "../api/book";
+
+export default async function Home() {
+  const data = await getBooks();
+  console.log(data.data);
   return (
     <>
-      <Header></Header>
-      <GridBooks></GridBooks>
+      <GridBooks data={data.data}></GridBooks>
     </>
   );
 }

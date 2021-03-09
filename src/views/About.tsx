@@ -1,9 +1,8 @@
 import React from "react";
 import { getBooks } from "../api/book";
 
-const data = getBooks();
-
-const About = () => {
+const About = async () => {
+  const data = await getBooks();
   console.log(data);
   return (
     <>
