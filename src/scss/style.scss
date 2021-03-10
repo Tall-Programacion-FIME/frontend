@@ -6,5 +6,11 @@
   font-family: "Poppins";
 }
 
+img {
+  width: 100%;
+}
+
+$border-radius: 10px;
+
 @import "header";
 @import "gridhome";

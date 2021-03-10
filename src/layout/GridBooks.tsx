@@ -6,7 +6,7 @@ export default function Grid({ data }: any) {
   return (
     <main className="grid-home">
       {data.map((nD: any) => (
-        <Cat key={nD._id} data={nD}></Cat>
+        <Cat key={nD.id} data={nD}></Cat>
       ))}
     </main>
   );

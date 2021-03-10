@@ -1,13 +1,18 @@
-.grid-home {
+.home-head {
   width: 95%;
   margin: 10px auto;
+}
+
+.grid-home {
+  @extend .home-head;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
 }
 
-.cat {
+.book {
   background: #000;
   color: #fff;
   padding: 1rem;
+  border-radius: $border-radius;
 }

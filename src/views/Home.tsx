@@ -20,5 +20,12 @@ export default function Home() {
     };
   }, [setData]);
 
-  return <GridBooks data={data} detail={detail}></GridBooks>;
+  return (
+    <>
+      <main className="home-head">
+        <h3>Los mejores libros según tu ingeniería</h3>
+      </main>
+      <GridBooks data={data} detail={detail}></GridBooks>;
+    </>
+  );
 }
