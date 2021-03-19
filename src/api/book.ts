@@ -1,10 +1,20 @@
 import axios from 'axios';
 
-const path = process.env.REACT_APP_PRO_MODE; 
+const path = process.env.REACT_APP_PRO_MODE;
 
 export async function getBooks() {
-	let books = await axios.get(path + "book/");
-	return books;
+	return await axios.get(path + "book/");
+}
+
+export async function searchBook(query: string) {
+	return await axios.get(
+		path + "book/search/",
+		{
+			params: {
+				q: query
+			}
+		}
+	);
 }
 
 /*
