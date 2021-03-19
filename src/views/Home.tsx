@@ -37,7 +37,7 @@ export default function Home() {
     let val = e.target.value
     setSearchBox(val)
     // If search string is empty restore the book cache
-    if (val === "") {
+    if (val === "" && booksCache.length !== 0) {
       setDetail("")
       setData(booksCache)
     }
@@ -47,11 +47,13 @@ export default function Home() {
     <>
       <main className="home-head">
         <h3>Los mejores libros según tu ingeniería</h3>
-        <form onSubmit={searchHandler}>
-          <input placeholder="Buscar un libro" onChange={searchBoxHandler}/>
+      </main>
+      <div className="form-wrapper">
+        <form onSubmit={searchHandler} className="search-form">
+          <input placeholder="Buscar un libro" onChange={searchBoxHandler} className="search-input"/>
           <button className="search-button" type="submit"><img src={SearchIcon} alt="Buscar" /></button>
         </form>
-      </main>
+      </div>
       <GridBooks data={data} detail={detail}/>;
     </>
   );
