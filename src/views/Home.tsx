@@ -3,6 +3,7 @@ import GridBooks from "../layout/GridBooks";
 
 import { getBooks } from "../api/book";
 import {BookModel} from "../models/book";
+import SearchIcon from "../data/loupe.svg"
 
 export default function Home() {
   const [data, setData] = useState<BookModel[]>([]);
@@ -25,6 +26,10 @@ export default function Home() {
     <>
       <main className="home-head">
         <h3>Los mejores libros según tu ingeniería</h3>
+        <form>
+          <input placeholder="Buscar un libro"/>
+          <button className="search-button"><img src={SearchIcon} alt="Buscar" /></button>
+        </form>
       </main>
       <GridBooks data={data} detail={detail}/>;
     </>

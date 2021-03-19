@@ -4,14 +4,12 @@ import {BookModel} from "../models/book"
 const path = process.env.REACT_APP_PRO_MODE;
 
 export async function getBooks(): Promise<BookModel[]> {
-  let books: BookModel[]
   let response = await axios.get<BookModel[]>(path + "book/");
-  books = response.data
-  return books
+  return response.data
 }
 
 export async function searchBook(query: string) {
-  return await axios.get(
+  let response = await axios.get<BookModel[]>(
     path + "book/search/",
     {
       params: {
@@ -19,13 +17,6 @@ export async function searchBook(query: string) {
       }
     }
   );
+  let books: BookModel[] = response.data
+  return books
 }
-
-/*
-
-export async function postBook(info: any) {
-	let book = info
-	await axios.post(book, path + "book/");
-}
-
-*/

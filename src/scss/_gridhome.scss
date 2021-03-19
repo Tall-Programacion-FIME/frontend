@@ -16,3 +16,13 @@
   padding: 1rem;
   border-radius: $border-radius;
 }
+
+.search-button {
+  background-color: transparent;
+  border: none;
+  img {
+    height: 1rem;
+    width: auto;
+    padding-left: 10px;
+  }
+}
