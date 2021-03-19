@@ -25,7 +25,7 @@ export default function Home() {
       <main className="home-head">
         <h3>Los mejores libros según tu ingeniería</h3>
       </main>
-      <GridBooks data={data} detail={detail}></GridBooks>;
+      <GridBooks data={data} detail={detail}/>;
     </>
   );
 }
