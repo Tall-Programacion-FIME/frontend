@@ -8,7 +8,7 @@ export default function Grid({data, detail}: { data: BookModel[], detail: string
       ? <h1>{detail}</h1>
       : (<main className="grid-home">
         {data.map(nD => (
-          <Cat data={nD}/>
+          <Cat data={nD} key={nD.id}/>
         ))}
       </main>)
   );
