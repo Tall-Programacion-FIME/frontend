@@ -26,6 +26,8 @@ export default function Home() {
 
   let searchHandler = (e: FormEvent) => {
     e.preventDefault()
+    if (searchBox === "")
+      return;
     // Cache all books when searching for a specific book
     setBooksCache(data)
     searchBook(searchBox).then(data => {
