@@ -4,7 +4,7 @@ import SearchBox from "./SearchBox";
 function Header() {
   return (
     <header>
-      <h1>Hola FIME!</h1>
+      <h1>FIME sobre ruedas</h1>
       <SearchBox />
     </header>
   );
