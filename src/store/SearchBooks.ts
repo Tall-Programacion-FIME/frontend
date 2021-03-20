@@ -2,13 +2,15 @@ import create from 'zustand'
 
 type State = {
 	data: any
-	setData: any
+	detail: string
+	//setData: any
 }
 
 
-const useStore = create<State>(set => ({
+const useStore = create<State>((set, get) => ({
 	data: [],
-	setData: () => set(state => ({ data: state.data }))
+	detail: ""
+	//setData: () => set(state => ({ data: state.data }))
 }))
 
 export default useStore
