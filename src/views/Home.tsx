@@ -3,9 +3,10 @@ import GridBooks from "../layout/GridBooks";
 import { getBooks } from "../api/book";
 import { BookModel } from "../models/book";
 import SearchBox from "../components/SearchBox";
+import useStore from "../store/SearchBooks";
 
 export default function Home() {
-  const [data, setData] = useState<BookModel[]>([]);
+  const { data, setData } = useStore();
   const [detail, setDetail] = useState("");
 
   // useEffect Hook, used for async functions

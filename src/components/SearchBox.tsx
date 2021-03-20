@@ -4,6 +4,8 @@ import { searchBook } from "../api/book";
 import { BookModel } from "../models/book";
 import SearchIcon from "../data/search.png";
 
+import useStore from "../store/SearchBooks";
+
 export default function SearchBox() {
   const [data, setData] = useState<BookModel[]>([]);
   const [detail, setDetail] = useState("");
