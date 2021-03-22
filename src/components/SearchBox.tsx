@@ -7,7 +7,7 @@ import SearchIcon from "../data/search.png";
 import useStore from "../store/SearchBooks";
 
 export default function SearchBox() {
-  const { data } = useStore();
+  const { books, areThereBooks } = useStore();
   //const [data, setData] = useState<BookModel[]>([]);
   //const [detail, setDetail] = useState("");
   const [searchBox, setSearchBox] = useState("");
@@ -17,12 +17,12 @@ export default function SearchBox() {
     e.preventDefault();
     if (searchBox === "") return;
     // Cache all books when searching for a specific book
-    setBooksCache(data);
+    setBooksCache(books);
     searchBook(searchBox)
       .then((data) => {
-        useStore.setState({ data });
+        useStore.setState({ books });
       })
-      .catch((_) => useStore.setState({ detail: "No encontramos libros" }));
+      .catch((_) => useStore.setState({ areThereBooks: false }));
   };
 
   let searchBoxHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -30,8 +30,8 @@ export default function SearchBox() {
     setSearchBox(val);
     // If search string is empty restore the book cache
     if (val === "" && booksCache.length !== 0) {
-      useStore.setState({ detail: "" });
-      useStore.setState({ data: booksCache });
+      useStore.setState({ areThereBooks: true });
+      useStore.setState({ books: booksCache });
     }
   };
   return (

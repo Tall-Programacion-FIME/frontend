@@ -7,7 +7,7 @@ import useStore from "../store/SearchBooks";
 import WithoutBooks from "../components/Books/WithoutBooks";
 
 export default function Home() {
-  const { data, detail } = useStore();
+  const { books, areThereBooks } = useStore();
 
   // useEffect Hook, used for async functions
   useEffect(() => {
@@ -15,8 +15,8 @@ export default function Home() {
     getBooks().then((data) => {
       if (mounted) {
         data
-          ? useStore.setState({ data })
-          : useStore.setState({ detail: "No hay ningún libro por ahora" });
+          ? useStore.setState({ books: data })
+          : useStore.setState({ areThereBooks: false });
       }
     });
     return () => {
@@ -29,7 +29,7 @@ export default function Home() {
       <main className="home-head">
         <h3>Los mejores libros según tu ingeniería</h3>
       </main>
-      {detail ? <WithoutBooks /> : <GridBooks data={data} />}
+      {areThereBooks ? <GridBooks books={books} /> : <WithoutBooks />}
     </>
   );
 }

@@ -1,16 +1,15 @@
 import create from 'zustand'
 
 type State = {
-	data: any
-	detail: string
+	books: any
+	areThereBooks: boolean 
 	//setData: any
 }
 
 
 const useStore = create<State>((set, get) => ({
-	data: [],
-	detail: ""
-	//setData: () => set(state => ({ data: state.data }))
+	books: [],
+	areThereBooks: true
 }))
 
 export default useStore
