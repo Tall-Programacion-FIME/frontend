@@ -7,7 +7,7 @@ import SearchIcon from "../data/search.png";
 import useStore from "../store/SearchBooks";
 
 export default function SearchBox() {
-  const { books, areThereBooks } = useStore();
+  const { books } = useStore();
   //const [data, setData] = useState<BookModel[]>([]);
   //const [detail, setDetail] = useState("");
   const [searchBox, setSearchBox] = useState("");
@@ -20,7 +20,7 @@ export default function SearchBox() {
     setBooksCache(books);
     searchBook(searchBox)
       .then((data) => {
-        useStore.setState({ books });
+        useStore.setState({ books: data });
       })
       .catch((_) => useStore.setState({ areThereBooks: false }));
   };
