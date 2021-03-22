@@ -1,15 +1,13 @@
 import React from "react";
 import Cat from "../components/Books/Cat";
-import {BookModel} from "../models/book";
+import { BookModel } from "../models/book";
 
-export default function Grid({data, detail}: { data: BookModel[], detail: string }) {
+export default function Grid({ data }: { data: BookModel[] }) {
   return (
-    detail !== ""
-      ? <h1>{detail}</h1>
-      : (<main className="grid-home">
-        {data.map(nD => (
-          <Cat data={nD} key={nD.id}/>
-        ))}
-      </main>)
+    <main className="grid-home">
+      {data.map((nD) => (
+        <Cat data={nD} key={nD.id} />
+      ))}
+    </main>
   );
 }

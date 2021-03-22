@@ -4,6 +4,8 @@ import { getBooks } from "../api/book";
 //import { BookModel } from "../models/book";
 import useStore from "../store/SearchBooks";
 
+import WithoutBooks from "../components/Books/WithoutBooks";
+
 export default function Home() {
   const { data, detail } = useStore();
 
@@ -27,7 +29,7 @@ export default function Home() {
       <main className="home-head">
         <h3>Los mejores libros según tu ingeniería</h3>
       </main>
-      <GridBooks data={data} detail={detail} />;
+      {detail ? <WithoutBooks /> : <GridBooks data={data} />}
     </>
   );
 }
