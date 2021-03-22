@@ -4,14 +4,13 @@
 }
 
 .grid-home {
-  @extend .home-head;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
 }
 
 .book {
-  background: #000;
+  background: var(--c1);
   color: #fff;
   padding: 1rem;
   border-radius: $border-radius;
@@ -53,7 +52,6 @@
     appearance: none;
   }
 }
-
 
 .search-button {
   background-color: transparent;

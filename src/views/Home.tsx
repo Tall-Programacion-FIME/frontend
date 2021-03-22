@@ -28,8 +28,8 @@ export default function Home() {
     <>
       <main className="home-head">
         <h3>Los mejores libros según tu ingeniería</h3>
+        {areThereBooks ? <GridBooks books={books} /> : <WithoutBooks />}
       </main>
-      {areThereBooks ? <GridBooks books={books} /> : <WithoutBooks />}
     </>
   );
 }
