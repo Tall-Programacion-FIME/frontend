@@ -2,7 +2,8 @@ import React, { useState, FormEvent, ChangeEvent } from "react";
 
 import { searchBook } from "../api/book";
 import { BookModel } from "../models/book";
-import SearchIcon from "../data/search.png";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import useStore from "../store/SearchBooks";
 
@@ -43,7 +44,7 @@ export default function SearchBox() {
           className="search-input"
         />
         <button className="search-button" type="submit">
-          <img src={SearchIcon} alt="Buscar" />
+          <FontAwesomeIcon icon="search" />
         </button>
       </form>
     </div>
