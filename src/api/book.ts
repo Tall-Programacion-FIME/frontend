@@ -8,7 +8,7 @@ export async function getBooks(): Promise<BookModel[]> {
   return response.data
 }
 
-export async function getBook(_id: string): Promise<BookModel[]> {
+export async function getBook(_id: number): Promise<BookModel[]> {
   let response = await axios.get<BookModel[]>(path + "book/" + _id);
   return response.data
 }
@@ -23,7 +23,7 @@ export async function updateBook(data: BookModel) {
 	return response.data;
 }
 
-export async function deleteBook(_id: string) {
+export async function deleteBook(_id: number) {
 	let response = await axios.delete<BookModel[]>(path + "book/" + _id);
 	return response.data;
 }
