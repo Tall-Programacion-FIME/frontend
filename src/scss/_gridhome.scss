@@ -1,6 +1,5 @@
 .home-head {
-  width: 95%;
-  margin: 10px auto;
+  @extend %component;
 }
 
 .grid-home {

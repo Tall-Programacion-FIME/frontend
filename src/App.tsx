@@ -19,8 +19,9 @@ const App = () => {
         <Header />
         <MessageBox />
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={About} />
           <Route path="/about" component={About} />
+          <Route path="/home" component={Home} />
         </Switch>
         <Footer />
       </Suspense>

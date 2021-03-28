@@ -1,0 +1,41 @@
+.about_back {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../assets/about1.jpg");
+  background-size: cover;
+  background-color: #111;
+  background-blend-mode: multiply;
+  opacity: 0.99;
+  z-index: 0;
+}
+
+.about .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  color: #fff;
+
+  div {
+    width: 700px;
+    margin: 15% auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    h1,
+    table {
+      margin: 1rem 0;
+    }
+
+    button {
+      @extend %button;
+      width: 100%;
+    }
+  }
+}
