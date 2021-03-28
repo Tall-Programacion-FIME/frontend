@@ -1,7 +1,9 @@
 import create from 'zustand'
 
+import {BookModel} from '../models/book'
+
 type State = {
-	books: any
+	books: BookModel[] 
 	areThereBooks: boolean 
 	//setData: any
 }
