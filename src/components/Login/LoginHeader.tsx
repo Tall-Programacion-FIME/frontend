@@ -5,10 +5,14 @@ function LoginHeader() {
   return (
     <div className="login_header">
       <Link to="/login">
-        <button className="primary">Registrate Ahora!</button>
+        <button className="primary">
+          <h4>Registrate</h4>
+        </button>
       </Link>
       <Link to="/login">
-        <button className="secondary">Inicia Sesión</button>
+        <button className="secondary">
+          <h5>Inicia Sesión</h5>
+        </button>
       </Link>
     </div>
   );
