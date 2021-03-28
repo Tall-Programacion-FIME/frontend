@@ -8,6 +8,7 @@ const Views = "./views/"; // Path of Views
 // Code Splitting
 const Header = lazy(() => import("./components/Header")); // Header Section
 const Footer = lazy(() => import("./components/Footer")); // Footer Section
+const MessageBox = lazy(() => import("./components/MessageBox")); // Box for Message
 const Home = lazy(() => import(Views + "Home")); // Homepage view
 const About = lazy(() => import(Views + "About")); // About Section
 
@@ -16,6 +17,7 @@ const App = () => {
     <Router>
       <Suspense fallback={<Loading />}>
         <Header />
+        <MessageBox />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />

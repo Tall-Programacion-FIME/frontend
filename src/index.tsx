@@ -7,6 +7,9 @@ import reportWebVitals from "./reportWebVitals";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
+import isProduction from "./helpers/isProduction";
+isProduction();
+
 library.add(faSearch);
 
 ReactDOM.render(
