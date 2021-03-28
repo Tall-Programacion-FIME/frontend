@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@300&family=Roboto+Slab:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@500&family=Roboto+Slab:wght@300&display=swap");
 
 * {
   margin: 0;
@@ -40,6 +40,7 @@ img {
   background: linear-gradient(to bottom, var(--c2), var(--c2), var(--c1));
 }
 
+$transition: all 500ms ease;
 $border-radius: 10px;
 
 @import "header";

@@ -1,14 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SearchBox from "./SearchBox";
+import LoginHeader from "./Login/LoginHeader";
 
 function Header() {
   return (
     <header>
       <Link to="/">
-        <h1>FIME sobre ruedas</h1>
+        <h1>FIME</h1>
+        <h4>sobre ruedas</h4>
       </Link>
       <SearchBox />
+      <LoginHeader />
     </header>
   );
 }
