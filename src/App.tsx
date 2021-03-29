@@ -24,6 +24,9 @@ const App = () => {
           <Route path="/about" component={About} />
           <Route path="/home" component={Home} />
           <Route path="/auth/:typeAuth" component={Auth} />
+          <Route path="*">
+            <Home />
+          </Route>
         </Switch>
         <Footer />
       </Suspense>
