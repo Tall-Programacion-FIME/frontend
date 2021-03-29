@@ -11,6 +11,7 @@ const Footer = lazy(() => import("./components/Footer")); // Footer Section
 const MessageBox = lazy(() => import("./components/MessageBox")); // Box for Message
 const Home = lazy(() => import(Views + "Home")); // Homepage view
 const About = lazy(() => import(Views + "About")); // About Section
+const Auth = lazy(() => import(Views + "Auth")); // About Section
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route exact path="/" component={About} />
           <Route path="/about" component={About} />
           <Route path="/home" component={Home} />
+          <Route path="/auth/:typeAuth" component={Auth} />
         </Switch>
         <Footer />
       </Suspense>
