@@ -1,34 +1,24 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { lazy } from "react";
+import { useParams, Redirect } from "react-router-dom";
 
+// Model for Route Param
 import { ModelAuth } from "../models/routeAuth";
 
+// Import Forms
+const Register = lazy(() => import("../components/Auth/Register"));
+const Login = lazy(() => import("../components/Auth/Login"));
+
+// Here the code is Executed
 function Auth() {
   const { typeAuth }: ModelAuth = useParams();
   switch (typeAuth) {
     case "register":
-      return Register();
+      return <Register />;
     case "login":
-      return Login();
+      return <Login />;
     default:
-      return <h2>Hi</h2>;
+      return <Redirect to="/home" />;
   }
-}
-
-function Register() {
-  return (
-    <>
-      <h2>Registrate</h2>
-    </>
-  );
-}
-
-function Login() {
-  return (
-    <>
-      <h2>Inicia Sesión</h2>
-    </>
-  );
 }
 
 export default Auth;
