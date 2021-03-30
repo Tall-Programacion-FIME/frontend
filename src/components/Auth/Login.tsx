@@ -5,19 +5,15 @@ function Login() {
     <form className="form form_login">
       <h2>Inicia Sesión</h2>
       <label htmlFor="email">Email:</label>
-      <input
-        type="text"
-        name="email"
-        id="email"
-        placeholder="Ingresa tu email"
-      />
+      <main className="input_container">
+        <span className="content_span">Ingresa tu email</span>
+        <input type="text" name="email" id="email" />
+      </main>
       <label htmlFor="password">Contraseña:</label>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        placeholder="Ingresa tu contraseña"
-      />
+      <main className="input_container">
+        <span className="content_span">Ingresa tu contraseña</span>
+        <input type="password" name="password" id="password" />
+      </main>
       <button type="submit">Iniciar Sesión</button>
     </form>
   );
