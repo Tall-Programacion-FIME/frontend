@@ -5,8 +5,8 @@ import { useParams, Redirect } from "react-router-dom";
 import { ModelAuth } from "../models/routeAuth";
 
 // Import Forms
-const Register = lazy(() => import("../components/Auth/Register"));
-const Login = lazy(() => import("../components/Auth/Login"));
+import Register from "../components/Auth/Register";
+import Login from "../components/Auth/Login";
 
 // Here the code is Executed
 function Auth() {
