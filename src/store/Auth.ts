@@ -1,15 +1,15 @@
 import create from 'zustand'
 
 type State = {
-	accessToken: string 
-	refreshToken: string 
+	access_token: string 
+	refresh_token: string 
 	isAuthenticated: boolean
 }
 
 
 const useStore = create<State>((set, get) => ({
-	accessToken: '',
-	refreshToken: '',
+	access_token: '',
+	refresh_token: '',
 	isAuthenticated: false 
 }))
 
