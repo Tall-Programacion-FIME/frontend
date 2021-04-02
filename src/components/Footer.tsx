@@ -3,9 +3,7 @@ import React from "react";
 function Footer() {
   return (
     <footer>
-      <p>
-        Hecho por: <del>Provisiontal Footer</del>
-      </p>
+      <p>Hecho por:</p>
       <table>
         <thead>
           <tr>
