@@ -18,3 +18,7 @@ export type LoginModel = {
 	password: string
 }
 
+export type TokenModel = {
+	access_token: string 
+	refresh_token: string 
+}
