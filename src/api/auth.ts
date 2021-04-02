@@ -6,15 +6,15 @@ const path = process.env.REACT_APP_PRO_MODE;
 
 export async function getLogin(data: LoginModel): Promise<TokenModel> {
 	try {
-  	const response = await axios.post<TokenModel>(path + "auth/token", data);
-		console.log(response);
+  	let response = await axios.post<TokenModel>(path + "auth/token", data);
+		response.data.isAuthenticated = true;
   	return response.data;
 		
 	} catch (error) {
-		console.log("");
   	return {
 			access_token: "",
-			refresh_token: ""
+			refresh_token: "",
+			isAuthenticated: false
 		};
 	}
 }
