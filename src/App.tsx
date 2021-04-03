@@ -2,6 +2,8 @@ import React, { lazy, Suspense } from "react"; // React Core and Utils
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"; // Web Router
 import "./scss/style.scss"; // Import of the Styles of the app
 import Loading from "./views/Loading"; // Fallback, this goes from a traditional import
+import refreshToken from "./helpers/refreshToken";
+import userStore from "./store/Auth";
 
 const Views = "./views/"; // Path of Views
 
@@ -17,6 +19,10 @@ const Profile = lazy(() => import(Views + "Profile")); // About Section
 // Check if Github Actions works
 
 const App = () => {
+  const { access_token, refresh_token, isAuthenticated } = userStore();
+  if (isAuthenticated) {
+    refreshToken(access_token, refresh_token);
+  }
   return (
     <Router>
       <Suspense fallback={<Loading />}>
