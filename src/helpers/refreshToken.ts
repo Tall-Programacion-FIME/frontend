@@ -1,4 +1,3 @@
-import {LoginModel} from '../models/user';
 import jwt_decode from "jwt-decode";
 import {refreshToken} from '../api/auth'
 
