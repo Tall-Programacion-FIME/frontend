@@ -1,5 +1,3 @@
-import React from 'react'
-import {Redirect} from 'react-router-dom'
 import { getLogin } from "../api/auth";
 import {LoginModel} from '../models/user';
 
