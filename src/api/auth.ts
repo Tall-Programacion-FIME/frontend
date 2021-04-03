@@ -20,7 +20,7 @@ export async function getLogin(data: LoginModel): Promise<TokenModel> {
 }
 
 export async function refreshToken(token: string): Promise<string>  {
-  let response = await axios.post(path + "auth/refresh_token", {headers: {'Authorization': `Bearer ${token}`}});
+  let response = await axios.post(path + "auth/refresh_token", token, {headers: {'Authorization': `Bearer ${token}`}});
   return response.data
 }
 

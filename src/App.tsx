@@ -21,7 +21,9 @@ const Profile = lazy(() => import(Views + "Profile")); // About Section
 const App = () => {
   const { access_token, refresh_token, isAuthenticated } = userStore();
   if (isAuthenticated) {
-    refreshToken(access_token, refresh_token);
+    refreshToken(access_token, refresh_token).then((data: any) =>
+      data ? userStore.setState(data) : null
+    );
   }
   return (
     <Router>
