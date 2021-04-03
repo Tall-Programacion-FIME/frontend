@@ -23,11 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 
-.firebaserc
-.firebase/
-.github/
-firebase.json
-remoteconfig.template.json
 
 .idea
 yarn.lock
