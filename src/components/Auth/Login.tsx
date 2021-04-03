@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import getToken from "../../helpers/getToken";
+import { Redirect } from "react-router-dom";
+import useStore from "../../store/Auth";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { isAuthenticated } = useStore();
 
   const Submit = async (e: any) => {
     e.preventDefault();
@@ -11,8 +14,18 @@ function Login() {
       email,
       password,
     };
-    getToken(data);
+    const tokens = await getToken(data);
+    console.log(tokens);
+    useStore.setState({
+      access_token: tokens.access_token,
+      refresh_token: tokens.refresh_token,
+      isAuthenticated: tokens.isAuthenticated,
+    });
   };
+
+  if (isAuthenticated) {
+    return <Redirect to="/get_access" />;
+  }
 
   return (
     <form className="form_fullscreen" onSubmit={Submit}>

@@ -8,6 +8,7 @@ const Views = "./views/"; // Path of Views
 // Code Splitting
 const Header = lazy(() => import("./components/Header")); // Header Section
 const Footer = lazy(() => import("./components/Footer")); // Footer Section
+const GetAccess = lazy(() => import("./components/Auth/AuthSatisfied")); // Header Section
 const MessageBox = lazy(() => import("./components/MessageBox")); // Box for Message
 const Home = lazy(() => import(Views + "Home")); // Homepage view
 const About = lazy(() => import(Views + "About")); // About Section
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/about" component={About} />
           <Route path="/home" component={Home} />
           <Route path="/auth/:typeAuth" component={Auth} />
+          <Route path="/get_access" component={GetAccess} />
           <Route path="*">
             <Home />
           </Route>
