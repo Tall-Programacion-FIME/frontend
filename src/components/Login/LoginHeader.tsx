@@ -22,6 +22,11 @@ function NotAuth() {
 function IsAuth() {
   return (
     <div className="login_header">
+      <Link to="/profile">
+        <button className="secondary">
+          <h4>Perfil</h4>
+        </button>
+      </Link>
       <Link to="/auth/logout">
         <button className="primary">
           <h4>Cerrar Sesión</h4>

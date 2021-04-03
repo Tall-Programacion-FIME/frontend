@@ -14,8 +14,8 @@ export async function getUser(_id: number): Promise<UserModel[]> {
   return response.data
 }
 
-export async function getMyInfo(): Promise<UserModel[]> {
-  let response = await axios.get<UserModel[]>(path + "user/me/");
+export async function getMyInfo(token: string): Promise<UserModel[]> {
+  let response = await axios.get<UserModel[]>(path + "user/me/", {headers: {'Authorization': `Bearer ${token}`}});
   return response.data
 }
 
