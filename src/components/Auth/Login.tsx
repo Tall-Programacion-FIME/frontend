@@ -15,16 +15,11 @@ function Login() {
       password,
     };
     const tokens = await getToken(data);
-    console.log(tokens);
-    useStore.setState({
-      access_token: tokens.access_token,
-      refresh_token: tokens.refresh_token,
-      isAuthenticated: tokens.isAuthenticated,
-    });
+    useStore.setState(tokens);
   };
 
   if (isAuthenticated) {
-    return <Redirect to="/get_access" />;
+    return <Redirect to="/home" />;
   }
 
   return (
