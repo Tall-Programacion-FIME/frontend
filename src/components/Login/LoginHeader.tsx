@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useStore from "../../store/Auth";
 
 function LoginHeader() {
   return (

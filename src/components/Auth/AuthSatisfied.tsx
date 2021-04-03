@@ -22,13 +22,21 @@ const loadOnState = () => {
 
 function AuthSatisfied() {
   const { access_token, refresh_token, isAuthenticated } = useStore();
+  /* We are going to use Zustand Persist Middleware
   if (isAuthenticated) {
     saveOnLocal(access_token, refresh_token);
   } else {
     loadOnState();
   }
+	 */
 
-  return <Redirect to="/home" />;
+  // return <Redirect to="/home" />;
+  return (
+    <div>
+      <h1>{access_token}</h1>
+      <h2>{refresh_token}</h2>
+    </div>
+  );
 }
 
 export default AuthSatisfied;
