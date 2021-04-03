@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useStore from "../../store/Auth";
 
-function LoginHeader() {
+function NotAuth() {
   return (
     <div className="login_header">
       <Link to="/auth/register">
@@ -16,6 +17,27 @@ function LoginHeader() {
       </Link>
     </div>
   );
+}
+
+function IsAuth() {
+  return (
+    <div className="login_header">
+      <Link to="/auth/logout">
+        <button className="primary">
+          <h4>Cerrar Sesión</h4>
+        </button>
+      </Link>
+    </div>
+  );
+}
+
+function LoginHeader() {
+  const { isAuthenticated } = useStore();
+  if (isAuthenticated) {
+    return <IsAuth />;
+  } else {
+    return <NotAuth />;
+  }
 }
 
 export default LoginHeader;

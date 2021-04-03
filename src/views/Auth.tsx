@@ -7,6 +7,7 @@ import { ModelAuth } from "../models/routeAuth";
 // Import Forms
 import Register from "../components/Auth/Register";
 import Login from "../components/Auth/Login";
+import Logout from "../components/Auth/Logout";
 
 // Here the code is Executed
 function Auth() {
@@ -16,6 +17,8 @@ function Auth() {
       return <Register />;
     case "login":
       return <Login />;
+    case "logout":
+      return <Logout />;
     default:
       return <Redirect to="/home" />;
   }
