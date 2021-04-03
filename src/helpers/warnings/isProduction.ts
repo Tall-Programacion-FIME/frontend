@@ -1,4 +1,4 @@
-import useStore from '../store/MessageState'
+import useStore from '../../store/MessageState'
 
 function checkProduction() {
 	if (process.env.NODE_ENV === 'production') {

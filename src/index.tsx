@@ -7,7 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 
-import isProduction from "./helpers/isProduction";
+import { isProduction } from "./helpers/warnings";
 isProduction();
 
 library.add(faSearch, faTimes);
