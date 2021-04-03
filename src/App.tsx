@@ -13,6 +13,8 @@ const Home = lazy(() => import(Views + "Home")); // Homepage view
 const About = lazy(() => import(Views + "About")); // About Section
 const Auth = lazy(() => import(Views + "Auth")); // About Section
 
+// Check if Github Actions works
+
 const App = () => {
   return (
     <Router>
