@@ -5,7 +5,7 @@ const path = process.env.REACT_APP_PRO_MODE;
 
 
 export async function getUsers(): Promise<UserModel[]> {
-  let response = await axios.get<UserModel[]>(path + "user");
+  let response = await axios.get<UserModel[]>(path + "user/");
   return response.data
 }
 

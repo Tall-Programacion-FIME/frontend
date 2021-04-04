@@ -4,7 +4,7 @@ import {BookModel} from "../models/book"
 const path = process.env.REACT_APP_PRO_MODE;
 
 export async function getBooks(): Promise<BookModel[]> {
-  let response = await axios.get<BookModel[]>(path + "book");
+  let response = await axios.get<BookModel[]>(path + "book/");
   return response.data
 }
 
