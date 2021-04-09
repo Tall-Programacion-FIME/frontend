@@ -3,7 +3,6 @@ import {LoginModel} from '../models/user';
 
 const getToken = async (data: LoginModel) => {
   const response = await getLogin(data);
-	console.log(response);
 	return response;
 } 
 
