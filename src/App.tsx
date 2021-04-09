@@ -5,12 +5,12 @@ import Loading from "./views/Loading"; // Fallback, this goes from a traditional
 import refreshToken from "./helpers/refreshToken";
 import userStore from "./store/Auth";
 
-const Views = "./views/"; // Path of Views
+import Header from "./components/Header";
+import MessageBox from "./components/MessageBox";
+import Footer from "./components/Footer";
 
+const Views = "./views/"; // Path of Views
 // Code Splitting
-const Header = lazy(() => import("./components/Header")); // Header Section
-const Footer = lazy(() => import("./components/Footer")); // Footer Section
-const MessageBox = lazy(() => import("./components/MessageBox")); // Box for Message
 const Home = lazy(() => import(Views + "Home")); // Homepage view
 const About = lazy(() => import(Views + "About")); // About Section
 const Auth = lazy(() => import(Views + "Auth")); // About Section
@@ -27,9 +27,9 @@ const App = () => {
   }
   return (
     <Router>
+      <Header />
+      <MessageBox />
       <Suspense fallback={<Loading />}>
-        <Header />
-        <MessageBox />
         <Switch>
           <Route exact path="/" component={About} />
           <Route path="/about" component={About} />
@@ -40,8 +40,8 @@ const App = () => {
             <Home />
           </Route>
         </Switch>
-        <Footer />
       </Suspense>
+      <Footer />
     </Router>
   );
 };
