@@ -5,7 +5,7 @@
   background-color: var(--c4);
 }
 .temporal {
-  position: absolute;
+  position: relative;
   z-index: 1;
   animation: temporal 3s ease forwards;
 }
