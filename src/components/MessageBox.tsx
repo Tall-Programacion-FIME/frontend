@@ -15,9 +15,7 @@ function MessageBox() {
   }
   return (
     <div
-      className={`message_box ${typeMessage} ${
-        isPermanent ? null : "temporal"
-      }`}
+      className={`message_box ${typeMessage} ${isPermanent ? "" : "temporal"}`}
     >
       <h1>{message}</h1>
       <button className="icon_button" onClick={eliminate} type="submit">
