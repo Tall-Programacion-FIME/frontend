@@ -9,12 +9,12 @@ function eliminate() {
 }
 
 function MessageBox() {
-  const { message, isMessage } = useStore();
+  const { message, isMessage, typeMessage } = useStore();
   if (!isMessage) {
     return null;
   }
   return (
-    <div className="message_box">
+    <div className={`message_box ${typeMessage}`}>
       <h1>{message}</h1>
       <button className="icon_button" onClick={eliminate} type="submit">
         <FontAwesomeIcon icon="times" />
