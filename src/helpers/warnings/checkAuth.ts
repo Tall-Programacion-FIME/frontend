@@ -6,7 +6,8 @@ function checkAuth(param: string) {
 		useStore.setState({ 
 			isMessage: true, 
 			message: "Autenticación completa", 
-			typeMessage:'pass' 
+			typeMessage:'pass',
+			isPermanent: false
 		});
 	} else {
 		useStore.setState({ 
