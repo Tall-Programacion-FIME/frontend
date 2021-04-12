@@ -13,9 +13,12 @@ function MessageBox() {
   if (!isMessage) {
     return null;
   }
+  if (!isPermanent) {
+    setTimeout(() => eliminate(), 3000);
+  }
   return (
     <div
-      className={`message_box ${typeMessage} ${isPermanent ? "" : "temporal"}`}
+      className={`message_box ${typeMessage} ${!isPermanent ? "temporal" : ""}`}
     >
       <h1>{message}</h1>
       <button className="icon_button" onClick={eliminate} type="submit">

@@ -7,17 +7,13 @@
 .temporal {
   position: absolute;
   z-index: 1;
-  animation: temporal 5s ease forwards;
+  animation: temporal 3s ease forwards;
 }
 
 @keyframes temporal {
   20% {
     transform: translateX(0);
     opacity: 1;
-  }
-  90% {
-    transform: translateY(-50%);
-    opacity: 0;
   }
   100% {
     transform: translateY(-50%);
