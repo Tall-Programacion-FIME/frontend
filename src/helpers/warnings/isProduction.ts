@@ -12,7 +12,7 @@ function checkProduction() {
 function Production() {
 	const isProduction = checkProduction();
 	if (!isProduction) {
-		useStore.setState({ isMessage: true, message: "No estás en el modo de producción!!" });
+		useStore.setState({ isMessage: true, message: "No estás en el modo de producción!!", typeMessage:'warning' });
 	}
 }
 
