@@ -18,7 +18,7 @@ function BookDetail() {
       <img src={book?.cover_url} alt={book?.name}/>
       <aside>
         <h2>{book?.name}</h2>
-        <span>Precio: ${book?.price}</span>
+        <p>Precio: ${book?.price}</p>
       </aside>
     </div>
   );
