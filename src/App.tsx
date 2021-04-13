@@ -15,6 +15,7 @@ const Home = lazy(() => import(Views + "Home")); // Homepage view
 const About = lazy(() => import(Views + "About")); // About Section
 const Auth = lazy(() => import(Views + "Auth")); // About Section
 const Profile = lazy(() => import(Views + "Profile")); // About Section
+const BookDetail = lazy(() => import(Views + "BookDetail")) // Book detail
 
 // Check if Github Actions works
 
@@ -36,6 +37,7 @@ const App = () => {
           <Route path="/home" component={Home} />
           <Route path="/auth/:typeAuth" component={Auth} />
           <Route path="/profile" component={Profile} />
+          <Route path="/book/:id" component={BookDetail} />
           <Route path="*">
             <Home />
           </Route>
