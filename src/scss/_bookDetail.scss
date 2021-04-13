@@ -1,0 +1,12 @@
+.detail-layout {
+  margin: 25px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  img {
+    width: 40%;
+  }
+  aside {
+    padding: 0 3rem;
+  }
+}
