@@ -1,19 +1,27 @@
 import React, { useState } from "react";
 import { RegisterModel } from "../../models/user";
+import useStore from "../../store/MessageState";
 
 function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
+  const [password, setPassword] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
 
   const Submit = (e: any) => {
     e.preventDefault();
-    const data = {
+    if (password !== confirmPass) {
+      return useStore.setState({
+        isMessage: true,
+        isPermanent: true,
+        message: "Contraseñas no coinciden",
+        typeMessage: "error",
+      });
+    }
+    const data: RegisterModel = {
       name,
       email,
-      pass,
-      confirmPass,
+      password,
     };
     console.log(data);
   };
@@ -52,7 +60,7 @@ function Register() {
           type="password"
           name="password"
           id="password"
-          onChange={(e) => setPass(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
         <label htmlFor="password" className="label_name">
