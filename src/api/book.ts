@@ -8,8 +8,8 @@ export async function getBooks(): Promise<BookModel[]> {
   return response.data
 }
 
-export async function getBook(_id: number): Promise<BookModel[]> {
-  let response = await axios.get<BookModel[]>(path + "book/" + _id);
+export async function getBook(_id: number): Promise<BookModel> {
+  let response = await axios.get<BookModel>(path + "book/" + _id);
   return response.data
 }
 
