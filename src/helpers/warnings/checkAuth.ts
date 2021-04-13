@@ -13,7 +13,8 @@ function checkAuth(param: string) {
 		useStore.setState({ 
 			isMessage: true, 
 			message: "Error en la Autenticación", 
-			typeMessage:'error' 
+			typeMessage:'error', 
+			isPermanent: true 
 		});
 	}
 }
