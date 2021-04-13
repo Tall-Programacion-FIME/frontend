@@ -7,17 +7,19 @@ import {UserModel} from "../models/user";
 import {getUser} from "../api/user";
 
 function BookDetail() {
-  let [ book, setBook ] = useState<BookModel>()
-  let [ user, setUser ] = useState<UserModel>()
-  let { id } = useParams<BookDetailParams>();
+  let [book, setBook] = useState<BookModel>()
+  let [user, setUser] = useState<UserModel>()
+  let {id} = useParams<BookDetailParams>();
 
   useEffect(() => {
-    getBook(parseInt(id)).then(result => {
-      setBook(result)
-      getUser(result.owner_id).then(result => {
-        setUser(result)
-      })
-    })
+    const fetchData = async () => {
+      let book = await getBook(parseInt(id));
+      setBook(book)
+      let user = await getUser(book.owner_id)
+      setUser(user)
+    }
+    // noinspection JSIgnoredPromiseFromCall
+    fetchData();
   }, [id])
 
   return (
@@ -25,7 +27,8 @@ function BookDetail() {
       <img src={book?.cover_url} alt={book?.name}/>
       <aside>
         <h2>{book?.name}</h2>
-        <p>Precio: <b>${book?.price}</b></p>
+        <p>Precio: <b>{book?.price}</b></p>
+        <p>Autor: {book?.author}</p>
         <p>Vendido por: {user?.name} ({user?.email})</p>
       </aside>
     </div>
