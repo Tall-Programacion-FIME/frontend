@@ -1,22 +1,26 @@
 .message_box {
   position: relative;
   width: 100%;
-  padding: 0.2rem 2.5%;
+  padding: 0 2.5%;
   background-color: var(--c4);
+  font-size: 0.8rem;
+  color: #fff;
+  text-shadow: 0px 0px 1px #aaa;
 }
 .temporal {
-  position: absolute;
+  position: relative;
   z-index: 1;
   animation: temporal 3s ease forwards;
 }
 
 @keyframes temporal {
   20% {
-    transform: translateX(0);
     opacity: 1;
   }
+  90% {
+    opacity: 0;
+  }
   100% {
-    transform: translateY(-50%);
     opacity: 0;
     visibility: hidden;
   }
