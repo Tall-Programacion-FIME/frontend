@@ -9,13 +9,14 @@ import Header from "./components/Header";
 import MessageBox from "./components/MessageBox";
 import Footer from "./components/Footer";
 
+import About from "./views/About"; // This is the first view
+
 const Views = "./views/"; // Path of Views
 // Code Splitting
 const Home = lazy(() => import(Views + "Home")); // Homepage view
-const About = lazy(() => import(Views + "About")); // About Section
 const Auth = lazy(() => import(Views + "Auth")); // About Section
 const Profile = lazy(() => import(Views + "Profile")); // About Section
-const BookDetail = lazy(() => import(Views + "BookDetail")) // Book detail
+const BookDetail = lazy(() => import(Views + "BookDetail")); // Book detail
 
 // Check if Github Actions works
 
