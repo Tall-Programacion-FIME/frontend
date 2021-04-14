@@ -13,13 +13,19 @@ function BookDetail() {
 
   useEffect(() => {
     const fetchData = async () => {
-      let book = await getBook(parseInt(id));
-      setBook(book)
-      let user = await getUser(book.owner_id)
-      setUser(user)
+      if (mounted) {
+        let book = await getBook(parseInt(id));
+        setBook(book)
+        let user = await getUser(book.owner_id)
+        setUser(user)
+      }
     }
+    let mounted = true;
     // noinspection JSIgnoredPromiseFromCall
     fetchData();
+    return () => {
+      mounted = false;
+    };
   }, [id])
 
   return (
