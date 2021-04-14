@@ -6,7 +6,7 @@
     width: 100%;
     display: block;
     border-radius: $border-radius;
-    box-shadow: 3px 3px 25px 1px rgba(107,104,107,0.64);
+    box-shadow: 3px 3px 25px 1px rgba(107, 104, 107, 0.64);
   }
 
   .img-container {
@@ -50,8 +50,7 @@
     }
   }
 
-  @media screen and (min-width: 625px){
-    height: 80vh;
+  @media screen and (min-width: 625px) {
     display: flex;
     justify-content: center;
     align-items: center;
