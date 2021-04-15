@@ -1,4 +1,4 @@
-import {useState, ChangeEvent, FormEvent} from "react";
+import {useState, ChangeEvent, FormEvent, useEffect} from "react";
 import {BookUploadModel} from "../models/book";
 import {postBook} from "../api/book";
 import useStore from "../store/Auth";
@@ -14,6 +14,12 @@ function UploadBook() {
   let [author, setAuthor] = useState("")
   let [price, setPrice] = useState("")
   let [cover, setCover] = useState<File>()
+
+  useEffect(() => {
+    if (!access_token) {
+      history.push("/home")
+    }
+  })
 
   const handleFile = (e: ChangeEvent<HTMLInputElement>) => {
     let files = e.target.files
