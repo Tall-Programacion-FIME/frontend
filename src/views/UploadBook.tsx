@@ -51,7 +51,7 @@ function UploadBook() {
 
     const [status, book_id] = await postBook(book, access_token)
     if (status !== 200) {
-      // TODO Handle failure
+      setMessage("Ha ocurrido un error")
       return
     }
     history.push(`/book/${book_id}`)
