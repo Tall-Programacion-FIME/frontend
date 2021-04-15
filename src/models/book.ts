@@ -7,6 +7,13 @@ export type BookModel = {
   owner_id: number
 }
 
+export type BookUploadModel = {
+  name: string
+  author: string
+  cover: File
+  price: string
+}
+
 export type BookAPIResponse = {
 	items: BookModel[]
 	total: number

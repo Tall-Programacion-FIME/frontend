@@ -1,8 +1,12 @@
-import {useState, ChangeEvent} from "react";
+import {useState, ChangeEvent, FormEvent} from "react";
+import {BookUploadModel} from "../models/book";
+import {postBook} from "../api/book";
+import useStore from "../store/Auth";
 
 function UploadBook() {
   const FILE_EXTENSIONS = ["jpg", "jpeg", "jpe", "jif", "jfif", "jfi", "png", "webp"]
 
+  const {access_token} = useStore()
   let [bookName, setBookName] = useState("")
   let [author, setAuthor] = useState("")
   let [price, setPrice] = useState("")
@@ -22,10 +26,29 @@ function UploadBook() {
     }
   }
 
+  const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    if (!bookName || !author || !price || !cover) {
+      console.log("Llena el formulario") // TODO Send message to user
+      return;
+    }
+    let book: BookUploadModel = {
+      name: bookName,
+      author: author,
+      price: price,
+      cover: cover
+    }
+
+    const status = await postBook(book, access_token)
+    if (status !== 200) {
+      // TODO Handle failure
+    }
+  }
+
   return (
     <div className="home-head">
       <h1>{bookName}</h1>
-      <form>
+      <form onSubmit={handleFormSubmit}>
         <label>
           Nombre del libro:
           <input type="text" value={bookName} onChange={(e) => setBookName(e.target.value)}/>
