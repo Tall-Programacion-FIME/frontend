@@ -1,11 +1,11 @@
 import axios from 'axios';
-import {BookModel} from "../models/book"
+import {BookModel, BookAPIResponse} from "../models/book"
 
 const path = process.env.REACT_APP_PRO_MODE;
 
 export async function getBooks(): Promise<BookModel[]> {
-  let response = await axios.get<BookModel[]>(path + "book/");
-  return response.data
+  let response = await axios.get<BookAPIResponse>(path + "book/");
+  return response.data.items
 }
 
 export async function getBook(_id: number): Promise<BookModel> {

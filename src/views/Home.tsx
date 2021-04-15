@@ -12,18 +12,18 @@ export default function Home() {
   // useEffect Hook, used for async functions
   useEffect(() => {
     const fetchData = async () => {
-      const books = await getBooks()
+      const books = await getBooks();
       if (mounted) {
         if (books) {
-          useStore.setState({books: books})
+          useStore.setState({ books });
         } else {
-          useStore.setState({areThereBooks: false})
+          useStore.setState({ areThereBooks: false });
         }
       }
-    }
+    };
     let mounted = true;
     // noinspection JSIgnoredPromiseFromCall
-    fetchData()
+    fetchData();
     return () => {
       mounted = false;
     };

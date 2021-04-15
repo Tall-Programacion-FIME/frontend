@@ -6,3 +6,10 @@ export type BookModel = {
   id: number
   owner_id: number
 }
+
+export type BookAPIResponse = {
+	items: BookModel[]
+	total: number
+	page: number
+	size: number
+}
