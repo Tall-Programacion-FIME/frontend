@@ -1,13 +1,13 @@
-import {useState, ChangeEvent, FormEvent, useEffect} from "react";
+import React, {useState, ChangeEvent, FormEvent, useEffect} from "react";
 import {BookUploadModel} from "../models/book";
 import {postBook} from "../api/book";
-import useStore from "../store/Auth";
+import authStore from "../store/Auth";
 import {useHistory} from "react-router-dom";
 
 function UploadBook() {
   const FILE_EXTENSIONS = ["jpg", "jpeg", "jpe", "jif", "jfif", "jfi", "png", "webp"]
 
-  const {access_token} = useStore()
+  const {access_token} = authStore()
   const history = useHistory()
 
   let [bookName, setBookName] = useState("")
@@ -15,9 +15,11 @@ function UploadBook() {
   let [price, setPrice] = useState("")
   let [cover, setCover] = useState<File>()
 
+  let [message, setMessage] = useState("")
+
   useEffect(() => {
     if (!access_token) {
-      history.push("/home")
+      history.push("/auth/login")
     }
   })
 
@@ -26,10 +28,11 @@ function UploadBook() {
     if (files) {
       let [, extension] = files[0].name.split(".")
       if (!FILE_EXTENSIONS.includes(extension.toLowerCase())) {
-        console.log("Format not supported") // TODO Handle invalid image type
         e.target.value = ""
+        setMessage("Formato de archivo invalido")
         return
       }
+      setMessage("")
       setCover(files[0])
       console.log(cover)
     }
@@ -37,10 +40,8 @@ function UploadBook() {
 
   const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (!bookName || !author || !price || !cover) {
-      console.log("Llena el formulario") // TODO Send message to user
-      return;
-    }
+    if (!cover) return;
+
     let book: BookUploadModel = {
       name: bookName,
       author: author,
@@ -57,28 +58,65 @@ function UploadBook() {
   }
 
   return (
-    <div className="home-head">
-      <h1>{bookName}</h1>
-      <form onSubmit={handleFormSubmit}>
-        <label>
-          Nombre del libro:
-          <input type="text" value={bookName} onChange={(e) => setBookName(e.target.value)}/>
+    <form className="form_fullscreen" onSubmit={handleFormSubmit}>
+      <h2>Publica un libro</h2>
+
+
+      <label htmlFor="book_name">Título del libro:</label>
+      <main className="input_container">
+          <input
+            type="text"
+            name="book_name"
+            required
+            value={bookName}
+            onChange={(e) => setBookName(e.target.value)}
+          />
+          <label htmlFor="book_name" className="label_name">
+            <span className="content_span">Título del libro</span>
+          </label>
+      </main>
+
+      <label htmlFor="author">Autor:</label>
+      <main className="input_container">
+        <input
+          type="text"
+          name="author"
+          required
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+        />
+        <label htmlFor="author" className="label_name">
+          <span className="content_span">Autor</span>
         </label>
-        <label>
-          Autor:
-          <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)}/>
+      </main>
+
+      <label htmlFor="price">Precio:</label>
+      <main className="input_container">
+        <input
+          type="number"
+          name="price"
+          required
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+        />
+        <label htmlFor="price" className="label_name">
+          <span className="content_span">Precio</span>
         </label>
-        <label>
-          Precio:
-          <input type="number" value={price} onChange={(e) => setPrice(e.target.value)}/>
-        </label>
-        <label>
-          Imagen de portada:
-          <input type="file" onChange={handleFile}/>
-        </label>
-        <input type="submit"/>
-      </form>
-    </div>
+      </main>
+
+      <label htmlFor="cover">Portada:</label>
+      <main className="input_container">
+        <input
+          type="file"
+          name="cover"
+          required
+          onChange={handleFile}
+        />
+      </main>
+      <p style={{color: "red"}}>{message}</p>
+
+      <button type="submit">Publicar</button>
+    </form>
   );
 }
 
