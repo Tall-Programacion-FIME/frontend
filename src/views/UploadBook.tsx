@@ -2,11 +2,14 @@ import {useState, ChangeEvent, FormEvent} from "react";
 import {BookUploadModel} from "../models/book";
 import {postBook} from "../api/book";
 import useStore from "../store/Auth";
+import {useHistory} from "react-router-dom";
 
 function UploadBook() {
   const FILE_EXTENSIONS = ["jpg", "jpeg", "jpe", "jif", "jfif", "jfi", "png", "webp"]
 
   const {access_token} = useStore()
+  const history = useHistory()
+
   let [bookName, setBookName] = useState("")
   let [author, setAuthor] = useState("")
   let [price, setPrice] = useState("")
@@ -39,10 +42,12 @@ function UploadBook() {
       cover: cover
     }
 
-    const status = await postBook(book, access_token)
+    const [status, book_id] = await postBook(book, access_token)
     if (status !== 200) {
       // TODO Handle failure
+      return
     }
+    history.push(`/book/${book_id}`)
   }
 
   return (
