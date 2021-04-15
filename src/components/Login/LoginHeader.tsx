@@ -22,6 +22,11 @@ function NotAuth() {
 function IsAuth() {
   return (
     <div className="login_header">
+      <Link to="/upload">
+        <button className="secondary">
+          <h4>Vender un libro</h4>
+        </button>
+      </Link>
       <Link to="/profile">
         <button className="secondary">
           <h4>Perfil</h4>
