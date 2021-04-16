@@ -11,6 +11,7 @@ export default function Home() {
 
   // useEffect Hook, used for async functions
   useEffect(() => {
+    let mounted = true;
     const fetchData = async () => {
       const books = await getBooks();
       if (mounted) {
@@ -21,8 +22,6 @@ export default function Home() {
         }
       }
     };
-    let mounted = true;
-    // noinspection JSIgnoredPromiseFromCall
     fetchData();
     return () => {
       mounted = false;
