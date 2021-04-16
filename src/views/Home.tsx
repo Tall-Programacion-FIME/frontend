@@ -12,7 +12,7 @@ export default function Home() {
   // useEffect Hook, used for async functions
   useEffect(() => {
     let mounted = true;
-    const fetchData = async () => {
+    (async () => {
       const books = await getBooks();
       if (mounted) {
         if (books) {
@@ -21,8 +21,7 @@ export default function Home() {
           useStore.setState({ areThereBooks: false });
         }
       }
-    };
-    fetchData();
+    })()
     return () => {
       mounted = false;
     };
