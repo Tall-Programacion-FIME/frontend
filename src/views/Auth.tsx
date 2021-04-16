@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, Redirect } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 
 // Model for Route Param
 import { ModelAuth } from "../models/routeAuth";

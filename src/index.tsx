@@ -8,6 +8,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import { isProduction, registerWorker } from "./helpers/warnings";
+
 registerWorker();
 isProduction();
 

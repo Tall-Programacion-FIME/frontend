@@ -5,8 +5,9 @@
   background-color: var(--c4);
   font-size: 0.8rem;
   color: #fff;
-  text-shadow: 0px 0px 1px #aaa;
+  text-shadow: 0 0 1px #aaa;
 }
+
 .temporal {
   position: relative;
   animation: temporal 3s ease forwards;
@@ -24,12 +25,15 @@
     visibility: hidden;
   }
 }
+
 .warning {
   background-color: var(--warning);
 }
+
 .error {
   background-color: var(--error);
 }
+
 .pass {
   background-color: var(--pass);
 }

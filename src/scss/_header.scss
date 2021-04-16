@@ -13,10 +13,12 @@ header {
   button {
     @extend %button;
   }
+
   .primary {
     background-color: var(--c3);
     padding: 0.9rem;
   }
+
   .secondary {
     background-color: var(--c2);
   }
