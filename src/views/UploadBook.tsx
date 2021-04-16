@@ -1,11 +1,20 @@
-import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import React, { useState, ChangeEvent, FormEvent } from "react";
 import { BookUploadModel } from "../models/book";
 import { postBook } from "../api/book";
 import authStore from "../store/Auth";
 import { useHistory } from "react-router-dom";
 
 function UploadBook() {
-  const FILE_EXTENSIONS = ["jpg", "jpeg", "png"];
+  const FILE_EXTENSIONS = [
+    "jpg",
+    "jpeg",
+    "jpe",
+    "jif",
+    "jfif",
+    "jfi",
+    "png",
+    "webp",
+  ];
 
   const { access_token } = authStore();
   const history = useHistory();
@@ -17,11 +26,9 @@ function UploadBook() {
 
   let [message, setMessage] = useState("");
 
-  useEffect(() => {
-    if (!access_token) {
-      history.push("/auth/login");
-    }
-  });
+  if (!access_token) {
+    history.push("/auth/login");
+  }
 
   const handleFile = (e: ChangeEvent<HTMLInputElement>) => {
     let files = e.target.files;

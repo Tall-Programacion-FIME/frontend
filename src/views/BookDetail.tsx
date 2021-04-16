@@ -12,6 +12,7 @@ function BookDetail() {
   let { id } = useParams<BookDetailParams>();
 
   useEffect(() => {
+    let mounted = true;
     const fetchData = async () => {
       if (mounted) {
         let book = await getBook(parseInt(id));
@@ -20,9 +21,9 @@ function BookDetail() {
         setUser(user);
       }
     };
-    let mounted = true;
-    // noinspection JSIgnoredPromiseFromCall
-    fetchData();
+    (async () => {
+      await fetchData();
+    })();
     return () => {
       mounted = false;
     };

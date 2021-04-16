@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 
+
 import { searchBook } from "../api/book";
 import { BookModel } from "../models/book";
 
@@ -9,13 +10,13 @@ export default function SearchBox() {
   const [searchBox, setSearchBox] = useState("");
   const [booksCache, setBooksCache] = useState<BookModel[]>([]);
 
-  let searchBooks = async () => {
-    if (searchBox === "") return;
-    let books = await searchBook(searchBox);
-    setBooksCache(books);
-  };
-
   useEffect(() => {
+    let searchBooks = async () => {
+      if (searchBox === "") return;
+      let books = await searchBook(searchBox);
+      setBooksCache(books);
+    };
+
     const timeoutId = setTimeout(() => searchBooks(), 500);
     return () => clearTimeout(timeoutId);
   }, [searchBox]);

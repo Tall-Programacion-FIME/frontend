@@ -29,7 +29,6 @@
   color: #fff;
   transition: all 500ms ease;
   border-radius: $border-radius;
-  border: 1px solid #ccc;
   cursor: pointer;
 
   p,
@@ -58,8 +57,10 @@
 
   img {
     height: 100%; // This I will change in the future
+    object-fit: cover;
     border-radius: $border-radius;
     transition: all 500ms ease;
+    box-shadow: $box-shadow;
   }
 
   &:hover {
