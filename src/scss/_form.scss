@@ -16,7 +16,8 @@ $border-radius: $border-radius - 5px;
   margin: 10% auto;
   padding: 1rem;
   border-radius: $border-radius;
-  box-shadow: 0px 0px 5px var(--c2);
+  box-shadow: 0 0 5px var(--c2);
+
   input {
     width: 100%;
     display: block;
@@ -26,16 +27,19 @@ $border-radius: $border-radius - 5px;
     border: none;
     outline: none;
   }
+
   input[type="checkbox"] {
     display: inline;
     width: auto;
     margin-right: 5px;
   }
+
   button {
     @extend %button;
     width: 100%;
     border-radius: $border-radius;
     margin-top: 5px;
+
     &:hover,
     &:focus {
       background-color: var(--c3);
@@ -47,10 +51,12 @@ $border-radius: $border-radius - 5px;
   h2 {
     color: var(--c2);
   }
+
   .input_container {
     padding-top: 5px;
     position: relative;
     overflow: hidden;
+
     & .content_span {
       position: absolute;
       bottom: 0.5rem;
@@ -60,18 +66,22 @@ $border-radius: $border-radius - 5px;
       transform-origin: left top;
       color: var(--c2);
     }
+
     & .label_name::before {
       @extend %pseudos;
       background-color: var(--c2);
     }
+
     & .label_name::after {
       @extend %pseudos;
       background-color: var(--c3);
       transform: translateX(-100%);
     }
+
     & input:focus + .label_name::after {
       transform: translateX(0%);
     }
+
     & input:focus + .label_name .content_span,
     & input:valid + .label_name .content_span {
       transform: translateY(-100%) scale(0.8);

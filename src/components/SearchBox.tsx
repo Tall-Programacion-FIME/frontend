@@ -1,4 +1,4 @@
-import React, {useState, ChangeEvent, useEffect} from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 
 import { searchBook } from "../api/book";
 import { BookModel } from "../models/book";
@@ -10,15 +10,15 @@ export default function SearchBox() {
   const [booksCache, setBooksCache] = useState<BookModel[]>([]);
 
   let searchBooks = async () => {
-    if (searchBox === "") return
-    let books = await searchBook(searchBox)
-    setBooksCache(books)
-  }
+    if (searchBox === "") return;
+    let books = await searchBook(searchBox);
+    setBooksCache(books);
+  };
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => searchBooks(), 500)
-    return () => clearTimeout(timeoutId)
-  }, [searchBox])
+    const timeoutId = setTimeout(() => searchBooks(), 500);
+    return () => clearTimeout(timeoutId);
+  }, [searchBox]);
 
   let searchBoxHandler = (e: ChangeEvent<HTMLInputElement>) => {
     let val = e.target.value;
@@ -27,7 +27,10 @@ export default function SearchBox() {
 
   return (
     <div className="form-wrapper">
-      <form onSubmit={(event => event.preventDefault())} className="search-form">
+      <form
+        onSubmit={(event) => event.preventDefault()}
+        className="search-form"
+      >
         <input
           placeholder="Buscar un libro"
           onChange={searchBoxHandler}
@@ -38,11 +41,13 @@ export default function SearchBox() {
         </button>
       </form>
       <div className="dropdown">
-          <div className="dropdown-content">
-            {booksCache.map((book) => (
-              <a href={`/book/${book.id}`} key={book.id}>{book.name} - {book.author}</a>
-            ))}
-          </div>
+        <div className="dropdown-content">
+          {booksCache.map((book) => (
+            <a href={`/book/${book.id}`} key={book.id}>
+              {book.name} - {book.author}
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -31,26 +31,31 @@
   border-radius: $border-radius;
   border: 1px solid #ccc;
   cursor: pointer;
+
   p,
   strong {
     opacity: 0;
     transition: all 500ms ease;
   }
+
   & p:nth-child(1) {
     position: absolute;
     top: 1rem;
     left: 1rem;
   }
+
   & p:nth-child(2) {
     position: absolute;
     top: 4rem;
     left: 1rem;
   }
+
   strong {
     position: absolute;
     bottom: 1rem;
     right: 1rem;
   }
+
   img {
     height: 100%; // This I will change in the future
     border-radius: $border-radius;
@@ -62,6 +67,7 @@
     strong {
       opacity: 1;
     }
+
     img {
       opacity: 0.2;
     }

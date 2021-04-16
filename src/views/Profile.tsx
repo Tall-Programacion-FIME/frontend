@@ -10,15 +10,14 @@ function Profile() {
   // useEffect Hook, used for async functions
   useEffect(() => {
     const fetchData = async () => {
-      const user_info = await getMyInfo(access_token)
+      const user_info = await getMyInfo(access_token);
       if (mounted && user_info) {
-        userStore.setState(user_info)
+        userStore.setState(user_info);
       }
-
-    }
+    };
     let mounted = true;
     // noinspection JSIgnoredPromiseFromCall
-    fetchData()
+    fetchData();
     return () => {
       mounted = false;
     };

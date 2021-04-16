@@ -40,6 +40,7 @@ img {
 ::-webkit-scrollbar {
   width: 7px;
 }
+
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, var(--c2), var(--c2), var(--c1));
 }
@@ -63,6 +64,7 @@ $border-radius: 10px;
   outline: none;
   transition: $transition;
   cursor: pointer;
+
   &:hover {
     opacity: 0.7;
   }
