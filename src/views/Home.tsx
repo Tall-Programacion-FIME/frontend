@@ -21,7 +21,7 @@ export default function Home() {
           useStore.setState({ areThereBooks: false });
         }
       }
-    })()
+    })();
     return () => {
       mounted = false;
     };
