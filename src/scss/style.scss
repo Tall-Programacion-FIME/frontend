@@ -26,6 +26,7 @@ h6 {
   --error: #ff0e07;
   --warning: #ffd421;
   --pass: #21ff6e;
+  --shadow: rgba(107, 104, 107, 0.64);
 }
 
 a {
@@ -46,6 +47,7 @@ img {
 
 $transition: all 500ms ease;
 $border-radius: 10px;
+$box-shadow: 5px 5px 10px var(--shadow);
 
 %component {
   width: 95%;
