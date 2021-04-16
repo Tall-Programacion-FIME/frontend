@@ -1,12 +1,7 @@
 import useStore from '../../store/MessageState'
 
 function checkProduction() {
-	if (process.env.NODE_ENV === 'production') {
-		return true
-	} else {
-		return false
-	}
-
+	return process.env.NODE_ENV === 'production';
 }
 
 function Production() {

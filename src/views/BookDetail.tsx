@@ -36,7 +36,7 @@ function BookDetail() {
         </div>
         <div className="product-content">
           <h2 className="product-title">{book?.name}</h2>
-          <h2>Autór(es): <span>{book?.author}</span></h2>
+          <h2>Autor(es): <span>{book?.author}</span></h2>
           <span>Precio: <b>$ {book?.price}</b></span>
 
           <div style={{marginBottom: "2rem"}}/>
