@@ -1,43 +1,33 @@
-import React, { useState, FormEvent, ChangeEvent } from "react";
+import React, {useState, ChangeEvent, useEffect} from "react";
 
 import { searchBook } from "../api/book";
 import { BookModel } from "../models/book";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import useStore from "../store/SearchBooks";
-
 export default function SearchBox() {
-  const { books } = useStore();
-  //const [data, setData] = useState<BookModel[]>([]);
-  //const [detail, setDetail] = useState("");
   const [searchBox, setSearchBox] = useState("");
   const [booksCache, setBooksCache] = useState<BookModel[]>([]);
 
-  let searchHandler = (e: FormEvent) => {
-    e.preventDefault();
-    if (searchBox === "") return;
-    // Cache all books when searching for a specific book
-    setBooksCache(books);
-    searchBook(searchBox)
-      .then((data) => {
-        useStore.setState({ books: data });
-      })
-      .catch((_) => useStore.setState({ areThereBooks: false }));
-  };
+  let searchBooks = async () => {
+    if (searchBox === "") return
+    let books = await searchBook(searchBox)
+    setBooksCache(books)
+  }
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => searchBooks(), 500)
+    return () => clearTimeout(timeoutId)
+  }, [searchBox])
 
   let searchBoxHandler = (e: ChangeEvent<HTMLInputElement>) => {
     let val = e.target.value;
     setSearchBox(val);
-    // If search string is empty restore the book cache
-    if (val === "" && booksCache.length !== 0) {
-      useStore.setState({ areThereBooks: true });
-      useStore.setState({ books: booksCache });
-    }
   };
+
   return (
     <div className="form-wrapper">
-      <form onSubmit={searchHandler} className="search-form">
+      <form onSubmit={(event => event.preventDefault())} className="search-form">
         <input
           placeholder="Buscar un libro"
           onChange={searchBoxHandler}
@@ -47,6 +37,13 @@ export default function SearchBox() {
           <FontAwesomeIcon icon="search" />
         </button>
       </form>
+      <div className="dropdown">
+          <div className="dropdown-content">
+            {booksCache.map((book) => (
+              <a href={`/book/${book.id}`} key={book.id}>{book.name} - {book.author}</a>
+            ))}
+          </div>
+      </div>
     </div>
   );
 }
