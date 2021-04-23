@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { getMyInfo } from "../api/user";
 import useStore from "../store/Auth";
 import userStore from "../store/User";
+import {deleteBook} from "../api/book";
 
 function Profile() {
   const { access_token } = useStore();
@@ -24,7 +25,8 @@ function Profile() {
     };
   }, [access_token, name]);
 
-  const deleteBook = async (book_id: number) => {
+  const handleDeleteBook = async (book_id: number) => {
+    await deleteBook(book_id, access_token)
     let new_books = books_for_sale.filter(book => book.id !== book_id)
     updateBooks(new_books)
   }
@@ -57,7 +59,7 @@ function Profile() {
               <td data-label="Autor">{book.author}</td>
               <td data-label="Precio">{book.price}</td>
               <td>
-                <button className="delete" onClick={() => deleteBook(book.id)}>Eliminar</button>
+                <button className="delete" onClick={() => handleDeleteBook(book.id)}>Eliminar</button>
                 <button>Editar</button>
               </td>
             </tr>

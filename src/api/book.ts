@@ -34,8 +34,10 @@ export async function updateBook(data: BookModel) {
   return response.data;
 }
 
-export async function deleteBook(_id: number) {
-  let response = await axios.delete<BookModel[]>(path + "book/" + _id);
+export async function deleteBook(_id: number, token: string) {
+  let response = await axios.delete(path + "book/" + _id, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
   return response.data;
 }
 
