@@ -1,3 +1,4 @@
+[![Prettier](https://github.com/Tall-Programacion-FIME/frontend/actions/workflows/main.yml/badge.svg)](https://github.com/Tall-Programacion-FIME/frontend/actions/workflows/main.yml)
 # FIME STORE (FIME sobre ruedas)
 Este es el frontend del proyecto [FIME sobre ruedas](https://fime.uanl.store)
 

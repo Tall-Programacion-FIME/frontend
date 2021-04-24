@@ -20,3 +20,9 @@ export type BookAPIResponse = {
   page: number;
   size: number;
 };
+
+export type BookUpdateModel = {
+  name: string;
+  author: string;
+  price: number;
+};

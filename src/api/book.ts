@@ -1,5 +1,10 @@
 import axios from "axios";
-import { BookAPIResponse, BookModel, BookUploadModel } from "../models/book";
+import {
+  BookAPIResponse,
+  BookModel,
+  BookUpdateModel,
+  BookUploadModel,
+} from "../models/book";
 
 const path = process.env.REACT_APP_PRO_MODE;
 
@@ -29,13 +34,21 @@ export async function postBook(
   return [response.status, response.data.id];
 }
 
-export async function updateBook(data: BookModel) {
-  let response = await axios.put<BookModel[]>(path + "book/" + data.id, data);
+export async function updateBook(
+  data: BookUpdateModel,
+  bookId: number,
+  token: string
+) {
+  let response = await axios.post<BookModel>(path + "book/" + bookId, data, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
   return response.data;
 }
 
-export async function deleteBook(_id: number) {
-  let response = await axios.delete<BookModel[]>(path + "book/" + _id);
+export async function deleteBook(_id: number, token: string) {
+  let response = await axios.delete(path + "book/" + _id, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
   return response.data;
 }
 
