@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
+import { postRegister } from "../../api/auth";
 import { RegisterModel } from "../../models/user";
 import useStore from "../../store/MessageState";
 
@@ -7,8 +9,9 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
+  const [redirect, setRedirect] = useState(false);
 
-  const Submit = (e: any) => {
+  const Submit = async (e: any) => {
     e.preventDefault();
     if (password !== confirmPass) {
       return useStore.setState({
@@ -23,8 +26,14 @@ function Register() {
       email,
       password,
     };
-    console.log(data);
+    await postRegister(data);
+    setRedirect(true);
   };
+
+  if (redirect) {
+    return <Redirect to="/auth/login" />;
+  }
+
   return (
     <form className="form_fullscreen" onSubmit={Submit}>
       <h2>Registrate</h2>

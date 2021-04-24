@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import getToken from "../../helpers/getToken";
 import { Redirect } from "react-router-dom";
 import useStore from "../../store/Auth";
-import checkAuth from "../../helpers/warnings/checkAuth";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -16,11 +15,6 @@ function Login() {
       password,
     };
     const tokens = await getToken(data);
-    if (!tokens.isAuthenticated) {
-      checkAuth("error");
-    } else {
-      checkAuth("pass");
-    }
     useStore.setState(tokens);
   };
 
