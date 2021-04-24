@@ -1,10 +1,10 @@
 import create from "zustand";
-import {State} from "zustand";
+import { State } from "zustand";
 import { UserModel } from "../models/user";
-import {BookModel} from "../models/book";
+import { BookModel } from "../models/book";
 
 interface UserStore extends UserModel, State {
-  updateBooks: (newBooks: BookModel[]) => void
+  updateBooks: (newBooks: BookModel[]) => void;
 }
 
 const useStore = create<UserStore>((set, get) => ({
@@ -14,7 +14,7 @@ const useStore = create<UserStore>((set, get) => ({
   is_active: false,
   is_admin: false,
   books_for_sale: [],
-  updateBooks: (newBooks: BookModel[]) => set({books_for_sale: newBooks}),
+  updateBooks: (newBooks: BookModel[]) => set({ books_for_sale: newBooks }),
 }));
 
 export default useStore;

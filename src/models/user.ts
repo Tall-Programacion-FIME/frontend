@@ -1,4 +1,4 @@
-import {BookModel} from "./book";
+import { BookModel } from "./book";
 
 export type UserModel = {
   name: string;
