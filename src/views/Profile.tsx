@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getMyInfo } from "../api/user";
 import useStore from "../store/Auth";
 import userStore from "../store/User";
-import { deleteBook } from "../api/book";
+import { deleteBook, updateBook } from "../api/book";
 
 function Profile() {
   const { access_token } = useStore();
@@ -48,11 +48,14 @@ function Profile() {
     }
   };
 
-  const handleSaveBook = () => {
+  const handleSaveBook = async () => {
     let updatedBooks = books_for_sale.map((value) =>
       value.id === editing ? { ...value, ...currentBook } : value
     );
     updateBooks(updatedBooks);
+    if (editing) {
+      await updateBook(currentBook, editing, access_token);
+    }
     setEditing(null);
   };
 
