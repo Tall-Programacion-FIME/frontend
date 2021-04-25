@@ -26,4 +26,3 @@ export function generalPass(message: string) {
     isPermanent: false,
   });
 }
-

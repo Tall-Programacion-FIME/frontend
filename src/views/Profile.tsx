@@ -40,10 +40,8 @@ function Profile() {
 
   const handleEditBook = async (book_id: number) => {
     setEditing(book_id);
-    let book = books_for_sale.reduce((acc, curr) =>
-      curr.id === book_id ? curr : acc
-    );
-    if (book !== null) {
+    let book = books_for_sale.find((book) => book.id === book_id);
+    if (book !== undefined) {
       setCurrentBook(book);
     }
   };
