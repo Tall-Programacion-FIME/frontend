@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SearchBox from "./SearchBox";
 import LoginHeader from "./Login/LoginHeader";
-import { BrowserView } from "react-device-detect";
+// import { BrowserView } from "react-device-detect";
 
 function Header() {
   return (
