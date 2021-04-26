@@ -5,7 +5,12 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faSearch, faTimes, faUpload, faUser } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSearch,
+  faTimes,
+  faUpload,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 
 import { isProduction, registerWorker } from "./helpers/warnings";
 

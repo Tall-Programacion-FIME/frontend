@@ -26,12 +26,12 @@ function IsAuth() {
     <div className="login_header">
       <Link to="/upload">
         <button className="secondary">
-					<FontAwesomeIcon icon="upload" />
+          <FontAwesomeIcon icon="upload" />
         </button>
       </Link>
       <Link to="/profile">
         <button className="secondary">
-					<FontAwesomeIcon icon="user" />
+          <FontAwesomeIcon icon="user" />
         </button>
       </Link>
       <Link to="/auth/logout">
