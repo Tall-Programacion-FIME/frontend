@@ -10,6 +10,10 @@ import {
   faTimes,
   faUpload,
   faUser,
+  faSignInAlt,
+  faSignOutAlt,
+  faDoorOpen,
+  faBook,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { isProduction, registerWorker } from "./helpers/warnings";
@@ -17,7 +21,16 @@ import { isProduction, registerWorker } from "./helpers/warnings";
 registerWorker();
 isProduction();
 
-library.add(faSearch, faTimes, faUpload, faUser);
+library.add(
+  faSearch,
+  faTimes,
+  faUpload,
+  faUser,
+  faSignInAlt,
+  faSignOutAlt,
+  faDoorOpen,
+  faBook
+);
 
 ReactDOM.render(
   <React.StrictMode>
