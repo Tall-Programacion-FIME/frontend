@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Home from "./Home";
+import LogoSVG from "../assets/logo.svg";
 
 const About = () => {
   return (
@@ -11,7 +12,7 @@ const About = () => {
         <div className="about_back"></div>
         <section className="content">
           <div>
-            <h1>Acerca de esta app</h1>
+            <img src={LogoSVG} className="about_logo" alt="Logo" />
             <p>
               Esta aplicación fue diseñada para la Unidad de Aprendizaje "Taller
               de Programación"
