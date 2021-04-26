@@ -1,12 +1,17 @@
 $padding: 0.2rem 2.5%;
 
 header {
+	position: sticky;
+	top: 0;
+	left: 0;
+	right: 0;
   background-color: var(--c2);
   color: #fff;
   padding: $padding;
   display: flex;
   justify-content: space-between;
   align-items: center;
+	z-index: 1;
 }
 
 .login_header {
@@ -16,10 +21,16 @@ header {
 
   .primary {
     background-color: var(--c3);
-    padding: 0.9rem;
+    padding: 0.7rem;
   }
 
   .secondary {
     background-color: var(--c2);
   }
+}
+
+@media screen and (max-width: 880px) {
+	header {
+		font-size: 0.8rem;
+	}
 }

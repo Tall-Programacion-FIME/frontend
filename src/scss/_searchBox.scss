@@ -70,3 +70,9 @@ $height: 2.2rem;
     }
   }
 }
+
+@media screen and (max-width: 520px) {
+	.form-wrapper {
+		display: none;
+	}
+}

@@ -5,14 +5,14 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faTimes, faUpload, faUser } from "@fortawesome/free-solid-svg-icons";
 
 import { isProduction, registerWorker } from "./helpers/warnings";
 
 registerWorker();
 isProduction();
 
-library.add(faSearch, faTimes);
+library.add(faSearch, faTimes, faUpload, faUser);
 
 ReactDOM.render(
   <React.StrictMode>
