@@ -8,6 +8,7 @@ import {
 import { generalError, generalPass } from "../helpers/warnings/general";
 import registerStore from "../store/User";
 import authStore from "../store/Auth";
+import useStore from "../store/MessageState";
 
 const path = process.env.REACT_APP_PRO_MODE;
 
@@ -43,7 +44,13 @@ export async function postRegister(
   try {
     let response = await axios.post<UserModel>(path + "user/", data);
     registerStore.setState(response.data);
-    generalPass("Registro completo");
+    useStore.setState({
+      isMessage: true,
+      message:
+        "Se envió un correo de confirmación a tu dirección de correo electrónico",
+      typeMessage: "pass",
+      isPermanent: true,
+    });
     return response.data;
   } catch (error) {
     let response = error.response.data.detail;
