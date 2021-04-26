@@ -1,5 +1,7 @@
 import * as React from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+import { verifyAccount } from "../api/auth";
+import { useEffect } from "react";
 
 type VerifyProps = {
   token: string;
@@ -7,6 +9,15 @@ type VerifyProps = {
 
 function Verify() {
   const { token }: VerifyProps = useParams();
+  const history = useHistory();
+
+  useEffect(() => {
+    (async () => {
+      await verifyAccount(token);
+    })();
+    history.push("/auth/login");
+  });
+
   return (
     <>
       <h1>Verify</h1>

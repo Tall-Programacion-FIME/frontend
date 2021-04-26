@@ -58,3 +58,22 @@ export async function postRegister(
     return new Error(error);
   }
 }
+
+export async function verifyAccount(token: string) {
+  try {
+    await axios.get(path + "user/verify/" + token);
+    useStore.setState({
+      isMessage: true,
+      message: "Cuenta activada con exito",
+      typeMessage: "pass",
+      isPermanent: true,
+    });
+  } catch (error) {
+    useStore.setState({
+      isMessage: true,
+      message: "Codigo de confirmación invalido",
+      typeMessage: "error",
+      isPermanent: true,
+    });
+  }
+}
