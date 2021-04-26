@@ -19,13 +19,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 2;
+  z-index: 1;
   color: #fff;
 
   div {
     width: 90%;
     max-width: 700px;
-    margin: 30vh auto;
+    margin: 25vh auto;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -40,4 +40,9 @@
       width: 100%;
     }
   }
+}
+
+.about_logo {
+  display: inline-block;
+  width: 300px;
 }
