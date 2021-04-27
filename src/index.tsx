@@ -16,9 +16,8 @@ import {
   faBook,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { isProduction, registerWorker } from "./helpers/warnings";
+import { isProduction } from "./helpers/warnings";
 
-registerWorker();
 isProduction();
 
 library.add(
