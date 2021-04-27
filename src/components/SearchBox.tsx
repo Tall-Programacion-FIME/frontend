@@ -11,7 +11,10 @@ export default function SearchBox() {
 
   useEffect(() => {
     let searchBooks = async () => {
-      if (searchBox === "") return;
+      if (searchBox === "") {
+        setBooksCache([]);
+        return;
+      }
       let books = await searchBook(searchBox);
       setBooksCache(books);
     };
