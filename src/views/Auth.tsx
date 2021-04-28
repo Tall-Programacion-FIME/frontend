@@ -9,16 +9,30 @@ import Register from "../components/Auth/Register";
 import Login from "../components/Auth/Login";
 import Logout from "../components/Auth/Logout";
 
+import Forms from "../layout/Forms";
+
 // Here the code is Executed
 function Auth() {
   const { typeAuth }: ModelAuth = useParams();
   switch (typeAuth) {
     case "register":
-      return <Register />;
+      return (
+        <Forms>
+          <Register />
+        </Forms>
+      );
     case "login":
-      return <Login />;
+      return (
+        <Forms>
+          <Login />
+        </Forms>
+      );
     case "logout":
-      return <Logout />;
+      return (
+        <Forms>
+          <Logout />
+        </Forms>
+      );
     default:
       return <Redirect to="/home" />;
   }
