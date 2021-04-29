@@ -9,7 +9,8 @@ import Register from "../components/Auth/Register";
 import Login from "../components/Auth/Login";
 import Logout from "../components/Auth/Logout";
 
-import Forms from "../layout/Forms";
+//Layout
+import FormsLayout from "../layout/Forms";
 
 // Here the code is Executed
 function Auth() {
@@ -17,21 +18,21 @@ function Auth() {
   switch (typeAuth) {
     case "register":
       return (
-        <Forms>
+        <FormsLayout>
           <Register />
-        </Forms>
+        </FormsLayout>
       );
     case "login":
       return (
-        <Forms>
+        <FormsLayout>
           <Login />
-        </Forms>
+        </FormsLayout>
       );
     case "logout":
       return (
-        <Forms>
+        <FormsLayout>
           <Logout />
-        </Forms>
+        </FormsLayout>
       );
     default:
       return <Redirect to="/home" />;

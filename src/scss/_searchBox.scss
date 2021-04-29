@@ -8,7 +8,8 @@ $height: 2.2rem;
 .search-form {
   position: relative;
   height: $height;
-  border-radius: $border-radius;
+  border-radius: $border-radius - 5px;
+  border: none;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
   background: #fff;
   transition: all 0.3s ease;

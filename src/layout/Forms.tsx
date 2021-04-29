@@ -1,12 +1,7 @@
 import React from "react";
 
 const Forms = (props: any) => {
-  return (
-    <>
-      <h1>hELLO</h1>
-      {props.children}
-    </>
-  );
+  return <main className="form_wrapper">{props.children}</main>;
 };
 
 export default Forms;
