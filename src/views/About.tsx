@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Home from "./Home";
-import LogoSVG from "assets/logo.svg";
+import LogoSVG from "assets/logos/logo.svg";
 
 const About = () => {
   return (
