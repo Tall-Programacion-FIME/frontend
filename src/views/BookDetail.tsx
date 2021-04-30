@@ -1,11 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { BookDetailParams } from "models/routeBookDetail";
-import { getBook } from "api/book";
+import { deleteBook, getBook } from "api/book";
 import { useEffect, useState } from "react";
 import { BookModel } from "models/book";
 import { UserModel } from "models/user";
 import { getUser } from "api/user";
 import userStore from "store/User";
+import authStore from "store/Auth";
 
 function BookDetail() {
   let [book, setBook] = useState<BookModel>();
@@ -13,6 +14,9 @@ function BookDetail() {
   let { id } = useParams<BookDetailParams>();
 
   let { is_admin } = userStore();
+  let { access_token } = authStore();
+
+  const history = useHistory();
 
   useEffect(() => {
     let mounted = true;
@@ -28,6 +32,18 @@ function BookDetail() {
       mounted = false;
     };
   }, [id]);
+
+  const handleDeleteBook = async () => {
+    let confirmation = window.confirm("Deseas borrar este libro");
+    if (confirmation) {
+      await deleteBook(parseInt(id), access_token);
+      history.push("/home");
+    }
+  };
+
+  const handleBanUser = async () => {
+    console.log("Ban user");
+  };
 
   return (
     <div className="detail-layout">
@@ -53,8 +69,12 @@ function BookDetail() {
           <div style={{ marginBottom: "2rem" }} />
           {is_admin ? (
             <>
-              <button className="delete">Borrar libro</button>
-              <button className="delete">Banear usuario</button>
+              <button className="delete" onClick={handleDeleteBook}>
+                Borrar libro
+              </button>
+              <button className="delete" onClick={handleBanUser}>
+                Banear usuario
+              </button>
             </>
           ) : (
             <></>
