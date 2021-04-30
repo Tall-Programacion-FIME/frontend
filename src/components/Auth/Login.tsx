@@ -16,9 +16,8 @@ function Login() {
       email,
       password,
     };
-    const tokens = await getToken(data);
-    authStore.setState(tokens);
-    const userInfo = await getMyInfo(tokens.access_token);
+    const { access_token } = await getToken(data);
+    const userInfo = await getMyInfo(access_token);
     userStore.setState(userInfo);
   };
 
