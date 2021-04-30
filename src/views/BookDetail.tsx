@@ -5,11 +5,14 @@ import { useEffect, useState } from "react";
 import { BookModel } from "models/book";
 import { UserModel } from "models/user";
 import { getUser } from "api/user";
+import userStore from "store/User";
 
 function BookDetail() {
   let [book, setBook] = useState<BookModel>();
   let [user, setUser] = useState<UserModel>();
   let { id } = useParams<BookDetailParams>();
+
+  let { is_admin } = userStore();
 
   useEffect(() => {
     let mounted = true;
@@ -48,6 +51,14 @@ function BookDetail() {
           <h2>{user?.name}</h2>
           <h4>Contacto: {user?.email}</h4>
           <div style={{ marginBottom: "2rem" }} />
+          {is_admin ? (
+            <>
+              <button className="delete">Borrar libro</button>
+              <button className="delete">Banear usuario</button>
+            </>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </div>
