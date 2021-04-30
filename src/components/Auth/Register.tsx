@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { postRegister } from "../../api/auth";
 import { RegisterModel } from "../../models/user";
 import useStore from "../../store/MessageState";
@@ -90,7 +90,12 @@ function Register() {
         </label>
       </main>
       <input type="checkbox" name="terms" id="terms" />
-      <label htmlFor="terms">Acepto los términos y condiciones</label>
+      <label htmlFor="terms">
+        Acepto los{" "}
+        <Link to="/terms" className="link">
+          términos y condiciones
+        </Link>
+      </label>
       <button type="submit">Regístrate</button>
     </form>
   );
