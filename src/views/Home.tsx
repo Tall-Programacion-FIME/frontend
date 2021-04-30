@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import GridBooks from "../layout/GridBooks";
-import { getBooks } from "../api/book";
+import GridBooks from "layout/GridBooks";
+import { getBooks } from "api/book";
 //import { BookModel } from "../models/book";
-import useStore from "../store/SearchBooks";
+import useStore from "store/SearchBooks";
 
-import WithoutBooks from "../components/Books/WithoutBooks";
+import WithoutBooks from "components/Books/WithoutBooks";
 
 export default function Home() {
   const { books, areThereBooks } = useStore();

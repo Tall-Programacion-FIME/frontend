@@ -1,10 +1,10 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import { BookUploadModel } from "../models/book";
-import { postBook } from "../api/book";
-import authStore from "../store/Auth";
+import { BookUploadModel } from "models/book";
+import { postBook } from "api/book";
+import authStore from "store/Auth";
 import { useHistory } from "react-router-dom";
 
-import FormLayout from "../layout/Forms";
+import FormLayout from "layout/Forms";
 
 function UploadBook() {
   const FILE_EXTENSIONS = [

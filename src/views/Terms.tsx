@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 
-import FormLayout from "../layout/Forms";
+import FormLayout from "layout/Forms";
 
 const Terms = () => {
   const [redirect, setRedirect] = useState(false);

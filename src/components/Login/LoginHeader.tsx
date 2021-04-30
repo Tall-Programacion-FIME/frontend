@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useStore from "../../store/Auth";
+import useStore from "store/Auth";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import useStore from "../store/MessageState";
+import useStore from "store/MessageState";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

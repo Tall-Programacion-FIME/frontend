@@ -1,7 +1,7 @@
 import create from "zustand";
 import { State } from "zustand";
-import { UserModel } from "../models/user";
-import { BookModel } from "../models/book";
+import { UserModel } from "models/user";
+import { BookModel } from "models/book";
 
 interface UserStore extends UserModel, State {
   updateBooks: (newBooks: BookModel[]) => void;
