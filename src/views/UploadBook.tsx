@@ -4,7 +4,7 @@ import { postBook } from "../api/book";
 import authStore from "../store/Auth";
 import { useHistory } from "react-router-dom";
 
-import FormLayout from '../layout/Forms'
+import FormLayout from "../layout/Forms";
 
 function UploadBook() {
   const FILE_EXTENSIONS = [
@@ -67,61 +67,61 @@ function UploadBook() {
   };
 
   return (
-    <FormLayout >
+    <FormLayout>
       <form className="form_fullscreen" onSubmit={handleFormSubmit}>
-      <h2>Publica un libro</h2>
+        <h2>Publica un libro</h2>
 
-      <label htmlFor="book_name">Título del libro:</label>
-      <main className="input_container">
-        <input
-          type="text"
-          name="book_name"
-          required
-          value={bookName}
-          onChange={(e) => setBookName(e.target.value)}
-        />
-        <label htmlFor="book_name" className="label_name">
-          <span className="content_span">Título del libro</span>
-        </label>
-      </main>
+        <label htmlFor="book_name">Título del libro:</label>
+        <main className="input_container">
+          <input
+            type="text"
+            name="book_name"
+            required
+            value={bookName}
+            onChange={(e) => setBookName(e.target.value)}
+          />
+          <label htmlFor="book_name" className="label_name">
+            <span className="content_span">Título del libro</span>
+          </label>
+        </main>
 
-      <label htmlFor="author">Autor:</label>
-      <main className="input_container">
-        <input
-          type="text"
-          name="author"
-          required
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-        />
-        <label htmlFor="author" className="label_name">
-          <span className="content_span">Autor</span>
-        </label>
-      </main>
+        <label htmlFor="author">Autor:</label>
+        <main className="input_container">
+          <input
+            type="text"
+            name="author"
+            required
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+          />
+          <label htmlFor="author" className="label_name">
+            <span className="content_span">Autor</span>
+          </label>
+        </main>
 
-      <label htmlFor="price">Precio:</label>
-      <main className="input_container">
-        <input
-          type="number"
-          name="price"
-          required
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
-        <label htmlFor="price" className="label_name">
-          <span className="content_span">Precio</span>
-        </label>
-      </main>
+        <label htmlFor="price">Precio:</label>
+        <main className="input_container">
+          <input
+            type="number"
+            name="price"
+            required
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
+          <label htmlFor="price" className="label_name">
+            <span className="content_span">Precio</span>
+          </label>
+        </main>
 
-      <label htmlFor="cover">Portada:</label>
-      <main className="input_container">
-        <input type="file" name="cover" required onChange={handleFile} />
-      </main>
-      <p style={{ color: "red" }}>{message}</p>
+        <label htmlFor="cover">Portada:</label>
+        <main className="input_container">
+          <input type="file" name="cover" required onChange={handleFile} />
+        </main>
+        <p style={{ color: "red" }}>{message}</p>
 
-      <button type="submit">Publicar</button>
-    </form>
-    </FormLayout >
+        <button type="submit">Publicar</button>
+      </form>
+    </FormLayout>
   );
 }
 
