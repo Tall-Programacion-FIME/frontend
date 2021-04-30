@@ -3,11 +3,12 @@ import { getMyInfo } from "api/user";
 import useStore from "store/Auth";
 import userStore from "store/User";
 import { deleteBook, updateBook } from "api/book";
-
-import FormLayout from "layout/Forms";
+import FormLayout from "../layout/Forms";
+import { useHistory } from "react-router-dom";
 
 function Profile() {
-  const { access_token } = useStore();
+  const history = useHistory();
+  const { access_token, isAuthenticated } = useStore();
   const { name, email, books_for_sale, updateBooks } = userStore();
   const [editing, setEditing] = useState<number | null>(null);
 
@@ -16,6 +17,8 @@ function Profile() {
     author: "",
     price: 0,
   });
+
+  if (!isAuthenticated) history.push("/home");
 
   // useEffect Hook, used for async functions
   useEffect(() => {
