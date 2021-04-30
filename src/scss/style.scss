@@ -34,6 +34,11 @@ a {
   text-decoration: none;
 }
 
+.link {
+  color: var(--c1);
+  text-decoration: underline;
+}
+
 img {
   width: 100%;
 }
@@ -62,7 +67,7 @@ $box-shadow: 5px 5px 10px var(--shadow);
   border: none;
   margin: 0 1px;
   color: #fff;
-  background-color: var(--c2);
+  background-color: var(--c1);
   outline: none;
   transition: $transition;
   cursor: pointer;

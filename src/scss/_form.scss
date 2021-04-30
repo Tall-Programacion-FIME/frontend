@@ -58,14 +58,14 @@ $border-radius: $border-radius - 5px;
 
     &:hover,
     &:focus {
-      background-color: var(--c3);
+      background-color: var(--c2);
     }
   }
 }
 
 .form_fullscreen {
   h2 {
-    color: var(--c2);
+    color: var(--c1);
   }
 
   .input_container {
@@ -90,7 +90,7 @@ $border-radius: $border-radius - 5px;
 
     & .label_name::after {
       @extend %pseudos;
-      background-color: var(--c3);
+      background-color: var(--c1);
       transform: translateX(-100%);
     }
 
@@ -101,7 +101,7 @@ $border-radius: $border-radius - 5px;
     & input:focus + .label_name .content_span,
     & input:valid + .label_name .content_span {
       transform: translateY(-100%) scale(0.8);
-      color: var(--c3);
+      color: var(--c1);
     }
   }
 }

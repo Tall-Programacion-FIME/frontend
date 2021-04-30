@@ -19,6 +19,7 @@ const Profile = lazy(() => import(Views + "Profile")); // About Section
 const BookDetail = lazy(() => import(Views + "BookDetail")); // Book detail
 const UploadBook = lazy(() => import(Views + "UploadBook")); // Upload book
 const Verify = lazy(() => import(Views + "Verify")); // Upload book
+const Terms = lazy(() => import(Views + "Terms")); // Upload book
 
 // Check if Github Actions works
 
@@ -43,6 +44,7 @@ const App = () => {
           <Route path="/profile" component={Profile} />
           <Route path="/book/:id" component={BookDetail} />
           <Route path="/upload" component={UploadBook} />
+          <Route path="/terms" component={Terms} />
           <Route path="*">
             <Home />
           </Route>
