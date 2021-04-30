@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
-import { BookDetailParams } from "../models/routeBookDetail";
-import { getBook } from "../api/book";
+import { BookDetailParams } from "models/routeBookDetail";
+import { getBook } from "api/book";
 import { useEffect, useState } from "react";
-import { BookModel } from "../models/book";
-import { UserModel } from "../models/user";
-import { getUser } from "../api/user";
+import { BookModel } from "models/book";
+import { UserModel } from "models/user";
+import { getUser } from "api/user";
 
 function BookDetail() {
   let [book, setBook] = useState<BookModel>();

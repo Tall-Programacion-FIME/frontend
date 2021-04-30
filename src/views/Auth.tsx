@@ -2,15 +2,15 @@ import React from "react";
 import { Redirect, useParams } from "react-router-dom";
 
 // Model for Route Param
-import { ModelAuth } from "../models/routeAuth";
+import { ModelAuth } from "models/routeAuth";
 
 // Import Forms
-import Register from "../components/Auth/Register";
-import Login from "../components/Auth/Login";
-import Logout from "../components/Auth/Logout";
+import Register from "components/Auth/Register";
+import Login from "components/Auth/Login";
+import Logout from "components/Auth/Logout";
 
 //Layout
-import FormsLayout from "../layout/Forms";
+import FormsLayout from "layout/Forms";
 
 // Here the code is Executed
 function Auth() {

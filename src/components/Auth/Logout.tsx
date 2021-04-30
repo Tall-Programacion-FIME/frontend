@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import useStore from "../../store/Auth";
+import useStore from "store/Auth";
 
 function logout() {
   const newState = {

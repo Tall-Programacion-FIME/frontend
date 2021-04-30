@@ -1,6 +1,6 @@
 import create from "zustand";
 
-import { BookModel } from "../models/book";
+import { BookModel } from "models/book";
 
 type State = {
   books: BookModel[];

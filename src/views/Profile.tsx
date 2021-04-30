@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { getMyInfo } from "../api/user";
-import useStore from "../store/Auth";
-import userStore from "../store/User";
-import { deleteBook, updateBook } from "../api/book";
-
+import { getMyInfo } from "api/user";
+import useStore from "store/Auth";
+import userStore from "store/User";
+import { deleteBook, updateBook } from "api/book";
 import FormLayout from "../layout/Forms";
 import { useHistory } from "react-router-dom";
 

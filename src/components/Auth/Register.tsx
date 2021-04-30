@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Redirect, Link } from "react-router-dom";
-import { postRegister } from "../../api/auth";
-import { RegisterModel } from "../../models/user";
-import useStore from "../../store/MessageState";
+import { postRegister } from "api/auth";
+import { RegisterModel } from "models/user";
+import useStore from "store/MessageState";
 
 function Register() {
   const [name, setName] = useState("");

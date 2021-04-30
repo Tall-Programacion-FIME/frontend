@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 
-import { searchBook } from "../api/book";
-import { BookModel } from "../models/book";
+import { searchBook } from "api/book";
+import { BookModel } from "models/book";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

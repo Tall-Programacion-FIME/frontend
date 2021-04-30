@@ -1,25 +1,24 @@
 import React, { lazy, Suspense } from "react"; // React Core and Utils
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"; // Web Router
-import "./scss/style.scss"; // Import of the Styles of the app
-import Loading from "./views/Loading"; // Fallback, this goes from a traditional import
-import refreshToken from "./helpers/refreshToken";
-import userStore from "./store/Auth";
+import "scss/style.scss"; // Import of the Styles of the app
+import Loading from "views/Loading"; // Fallback, this goes from a traditional import
+import refreshToken from "helpers/refreshToken";
+import userStore from "store/Auth";
 
-import Header from "./components/Header";
-import MessageBox from "./components/MessageBox";
-import Footer from "./components/Footer";
+import Header from "components/Header";
+import MessageBox from "components/MessageBox";
+import Footer from "components/Footer";
 
-import About from "./views/About"; // This is the first view
+import About from "views/About"; // This is the first view
 
-const Views = "./views/"; // Path of Views
 // Code Splitting
-const Home = lazy(() => import(Views + "Home")); // Homepage view
-const Auth = lazy(() => import(Views + "Auth")); // About Section
-const Profile = lazy(() => import(Views + "Profile")); // About Section
-const BookDetail = lazy(() => import(Views + "BookDetail")); // Book detail
-const UploadBook = lazy(() => import(Views + "UploadBook")); // Upload book
-const Verify = lazy(() => import(Views + "Verify")); // Upload book
-const Terms = lazy(() => import(Views + "Terms")); // Upload book
+const Home = lazy(() => import("views/Home")); // Homepage view
+const Auth = lazy(() => import("views/Auth")); // About Section
+const Profile = lazy(() => import("views/Profile")); // About Section
+const BookDetail = lazy(() => import("views/BookDetail")); // Book detail
+const UploadBook = lazy(() => import("views/UploadBook")); // Upload book
+const Verify = lazy(() => import("views/Verify")); // Upload book
+const Terms = lazy(() => import("views/Terms")); // Upload book
 
 // Check if Github Actions works
 

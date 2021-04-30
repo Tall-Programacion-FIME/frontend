@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import getToken from "../../helpers/getToken";
+import getToken from "helpers/getToken";
 import { Redirect } from "react-router-dom";
-import useStore from "../../store/Auth";
+import useStore from "store/Auth";
 
 function Login() {
   const [email, setEmail] = useState("");

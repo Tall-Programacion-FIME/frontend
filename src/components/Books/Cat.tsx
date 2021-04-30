@@ -1,6 +1,6 @@
 import React, { MouseEvent } from "react";
 import { useHistory } from "react-router-dom";
-import { BookModel } from "../../models/book";
+import { BookModel } from "models/book";
 
 export default function Cat({ data }: { data: BookModel }) {
   const history = useHistory();
