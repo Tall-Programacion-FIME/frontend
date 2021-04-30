@@ -4,6 +4,8 @@ import { postBook } from "../api/book";
 import authStore from "../store/Auth";
 import { useHistory } from "react-router-dom";
 
+import FormLayout from '../layout/Forms'
+
 function UploadBook() {
   const FILE_EXTENSIONS = [
     "jpg",
@@ -65,7 +67,8 @@ function UploadBook() {
   };
 
   return (
-    <form className="form_fullscreen" onSubmit={handleFormSubmit}>
+    <FormLayout >
+      <form className="form_fullscreen" onSubmit={handleFormSubmit}>
       <h2>Publica un libro</h2>
 
       <label htmlFor="book_name">Título del libro:</label>
@@ -118,6 +121,7 @@ function UploadBook() {
 
       <button type="submit">Publicar</button>
     </form>
+    </FormLayout >
   );
 }
 

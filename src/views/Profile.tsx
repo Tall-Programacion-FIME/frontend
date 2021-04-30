@@ -4,6 +4,8 @@ import useStore from "../store/Auth";
 import userStore from "../store/User";
 import { deleteBook, updateBook } from "../api/book";
 
+import FormLayout from '../layout/Forms'
+
 function Profile() {
   const { access_token } = useStore();
   const { name, email, books_for_sale, updateBooks } = userStore();
@@ -58,7 +60,8 @@ function Profile() {
   };
 
   return (
-    <div className="my-books">
+    <FormLayout >
+      <div className="my-books">
       <div className="form_fullscreen">
         <h1>Nombre: {name}</h1>
         <h2>Email: {email}</h2>
@@ -161,6 +164,7 @@ function Profile() {
         </tbody>
       </table>
     </div>
+  </FormLayout>
   );
 }
 
