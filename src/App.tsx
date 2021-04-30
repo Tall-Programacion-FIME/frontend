@@ -3,13 +3,15 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom"; // We
 import "scss/style.scss"; // Import of the Styles of the app
 import Loading from "views/Loading"; // Fallback, this goes from a traditional import
 import refreshToken from "helpers/refreshToken";
-import userStore from "store/Auth";
+import authStore from "store/Auth";
+import userStore from "store/User";
 
 import Header from "components/Header";
 import MessageBox from "components/MessageBox";
 import Footer from "components/Footer";
 
-import About from "views/About"; // This is the first view
+import About from "views/About";
+import { getMyInfo } from "./api/user"; // This is the first view
 
 // Code Splitting
 const Home = lazy(() => import("views/Home")); // Homepage view
@@ -23,11 +25,15 @@ const Terms = lazy(() => import("views/Terms")); // Upload book
 // Check if Github Actions works
 
 const App = () => {
-  const { access_token, refresh_token, isAuthenticated } = userStore();
+  const { access_token, refresh_token, isAuthenticated } = authStore();
+  const { name } = userStore();
   if (isAuthenticated) {
     refreshToken(access_token, refresh_token).then((data: any) =>
-      data ? userStore.setState(data) : null
+      data ? authStore.setState(data) : null
     );
+    if (!name) {
+      getMyInfo(access_token).then((response) => userStore.setState(response));
+    }
   }
   return (
     <Router>
