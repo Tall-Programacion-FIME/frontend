@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import getToken from "helpers/getToken";
 import { Redirect } from "react-router-dom";
 import useStore from "store/Auth";

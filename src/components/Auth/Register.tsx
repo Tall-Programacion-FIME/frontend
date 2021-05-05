@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Redirect, Link } from "react-router-dom";
 import { postRegister } from "api/auth";
 import { RegisterModel } from "models/user";

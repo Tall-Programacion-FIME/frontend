@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function WithoutBooks() {
   return (
     <main className="without_books">

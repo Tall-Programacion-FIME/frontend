@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react"; // React Core and Utils
+import { lazy, Suspense } from "react"; // React Core and Utils
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"; // Web Router
 import "scss/style.scss"; // Import of the Styles of the app
 import Loading from "views/Loading"; // Fallback, this goes from a traditional import

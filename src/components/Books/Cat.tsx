@@ -1,4 +1,4 @@
-import React, { MouseEvent } from "react";
+import { MouseEvent } from "react";
 import { useHistory } from "react-router-dom";
 import { BookModel } from "models/book";
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import GridBooks from "layout/GridBooks";
 import { getBooks } from "api/book";
 //import { BookModel } from "../models/book";

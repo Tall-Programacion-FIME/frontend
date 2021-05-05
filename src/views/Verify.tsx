@@ -1,4 +1,3 @@
-import React from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { verifyAccount } from "api/auth";
 import { useEffect } from "react";
