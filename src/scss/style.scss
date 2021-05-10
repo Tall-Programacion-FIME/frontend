@@ -20,6 +20,7 @@ h6 {
 :root {
   --c1: #191970;
   --c2: #006400;
+  --c2-alpha: #006400cc;
   --c3: #ff4500;
   --c4: #ffd700;
 
@@ -67,7 +68,7 @@ $box-shadow: 5px 5px 10px var(--shadow);
   border: none;
   margin: 0 1px;
   color: #fff;
-  background-color: var(--c1);
+  background-color: var(--c2);
   outline: none;
   transition: $transition;
   cursor: pointer;
