@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import getToken from "helpers/getToken";
 import { Redirect } from "react-router-dom";
-import useStore from "store/Auth";
+import authStore from "store/Auth";
+import userStore from "store/User";
+import { getMyInfo } from "../../api/user";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { isAuthenticated } = useStore();
+  const { isAuthenticated } = authStore();
 
   const Submit = async (e: any) => {
     e.preventDefault();
@@ -14,8 +16,9 @@ function Login() {
       email,
       password,
     };
-    const tokens = await getToken(data);
-    useStore.setState(tokens);
+    const { access_token } = await getToken(data);
+    const userInfo = await getMyInfo(access_token);
+    userStore.setState(userInfo);
   };
 
   if (isAuthenticated) {

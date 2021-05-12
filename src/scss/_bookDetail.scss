@@ -71,4 +71,13 @@
       padding-top: 0;
     }
   }
+
+  button {
+    @extend %button;
+  }
+
+  .delete {
+    color: white;
+    background-color: red;
+  }
 }
