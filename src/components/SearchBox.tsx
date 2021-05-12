@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { BookModel } from "models/book";
 import bookStore from "store/SearchBooks";
@@ -28,11 +28,6 @@ export default function SearchBox() {
     return () => clearTimeout(timeoutId);
   }, [searchBox]);
 
-  let searchBoxHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    let val = e.target.value;
-    setSearchBox(val);
-  };
-
   return (
     <div className="form-wrapper">
       <form
@@ -41,7 +36,7 @@ export default function SearchBox() {
       >
         <input
           placeholder="Buscar un libro"
-          onChange={searchBoxHandler}
+          onChange={(e) => setSearchBox(e.target.value)}
           className="search-input"
         />
         <button className="search-button" type="submit">
