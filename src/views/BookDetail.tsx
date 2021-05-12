@@ -4,7 +4,7 @@ import { deleteBook, getBook } from "api/book";
 import { useEffect, useState } from "react";
 import { BookModel } from "models/book";
 import { UserModel } from "models/user";
-import { getUser } from "api/user";
+import { banUser, getUser } from "api/user";
 import userStore from "store/User";
 import authStore from "store/Auth";
 
@@ -42,7 +42,12 @@ function BookDetail() {
   };
 
   const handleBanUser = async () => {
-    console.log("Ban user");
+    console.log(id);
+    let confirmation = window.confirm("Deseas borrar este libro");
+    if (confirmation) {
+      await banUser(parseInt(id), access_token);
+      history.push("/home");
+    }
   };
 
   return (

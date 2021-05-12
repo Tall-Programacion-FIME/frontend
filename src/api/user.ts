@@ -25,7 +25,9 @@ export async function postUser(data: RegisterModel): Promise<RegisterModel> {
   return response.data;
 }
 
-export async function banUser(_id: number): Promise<UserModel> {
-  let response = await axios.delete<UserModel>(path + "user/" + _id + "/ban");
+export async function banUser(_id: number, token: string): Promise<UserModel> {
+  let response = await axios.delete(path + "user/" + _id + "/ban", {
+    headers: { Authorization: `Bearer ${token}` },
+  });
   return response.data;
 }
