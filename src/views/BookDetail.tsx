@@ -46,7 +46,7 @@ function BookDetail() {
     let confirmation = window.confirm("¿Deseas banear a este usuario?");
     if (confirmation) {
       if (book) {
-        await banUser(book.id, access_token);
+        await banUser(book.owner_id, access_token);
       }
       history.push("/home");
     }
