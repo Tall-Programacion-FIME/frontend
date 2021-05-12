@@ -43,9 +43,11 @@ function BookDetail() {
 
   const handleBanUser = async () => {
     console.log(id);
-    let confirmation = window.confirm("Deseas borrar este libro");
+    let confirmation = window.confirm("¿Deseas banear a este usuario?");
     if (confirmation) {
-      await banUser(parseInt(id), access_token);
+      if (book) {
+        await banUser(book.owner_id, access_token);
+      }
       history.push("/home");
     }
   };
