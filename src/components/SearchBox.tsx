@@ -1,13 +1,14 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import { searchBook } from "api/book";
 import { BookModel } from "models/book";
+import bookStore from "store/SearchBooks";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function SearchBox() {
   const [searchBox, setSearchBox] = useState("");
   const [booksCache, setBooksCache] = useState<BookModel[]>([]);
+  let { books } = bookStore();
 
   useEffect(() => {
     let searchBooks = async () => {
@@ -15,18 +16,17 @@ export default function SearchBox() {
         setBooksCache([]);
         return;
       }
-      let books = await searchBook(searchBox);
-      setBooksCache(books);
+      let foundBooks = books.filter(
+        ({ name, author }) =>
+          name.toLowerCase().includes(searchBox.toLocaleLowerCase()) ||
+          author.toLowerCase().includes(searchBox.toLowerCase())
+      );
+      setBooksCache(foundBooks);
     };
 
     const timeoutId = setTimeout(() => searchBooks(), 500);
     return () => clearTimeout(timeoutId);
   }, [searchBox]);
-
-  let searchBoxHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    let val = e.target.value;
-    setSearchBox(val);
-  };
 
   return (
     <div className="form-wrapper">
@@ -36,7 +36,7 @@ export default function SearchBox() {
       >
         <input
           placeholder="Buscar un libro"
-          onChange={searchBoxHandler}
+          onChange={(e) => setSearchBox(e.target.value)}
           className="search-input"
         />
         <button className="search-button" type="submit">
