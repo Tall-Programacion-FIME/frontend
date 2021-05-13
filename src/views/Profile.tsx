@@ -64,11 +64,11 @@ function Profile() {
 
   return (
     <FormLayout>
+      <div className="form_profile">
+        <h1>Nombre: {name}</h1>
+        <h2>Email: {email}</h2>
+      </div>
       <div className="my-books">
-        <div className="form_fullscreen">
-          <h1>Nombre: {name}</h1>
-          <h2>Email: {email}</h2>
-        </div>
         <table>
           <caption>Mis libros</caption>
           <thead>
