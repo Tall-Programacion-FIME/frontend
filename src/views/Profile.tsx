@@ -3,7 +3,7 @@ import { getMyInfo } from "api/user";
 import useStore from "store/Auth";
 import userStore from "store/User";
 import { deleteBook, updateBook } from "api/book";
-import FormLayout from "../layout/Forms";
+import FormLayout from "../layout/Profile";
 import { useHistory } from "react-router-dom";
 
 function Profile() {

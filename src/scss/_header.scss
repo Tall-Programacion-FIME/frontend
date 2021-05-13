@@ -5,13 +5,14 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  background-color: var(--c2-alpha);
+  background-color: var(--c2);
   color: #fff;
   padding: $padding;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 2;
+  opacity: 0.9;
 }
 
 .login_header {
