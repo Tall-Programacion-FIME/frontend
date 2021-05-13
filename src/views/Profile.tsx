@@ -4,7 +4,7 @@ import useStore from "store/Auth";
 import userStore from "store/User";
 import { deleteBook, updateBook } from "api/book";
 import FormLayout from "../layout/Profile";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function Profile() {
   const history = useHistory();
@@ -64,9 +64,12 @@ function Profile() {
 
   return (
     <FormLayout>
-      <div className="form_profile">
-        <h1>Nombre: {name}</h1>
-        <h2>Email: {email}</h2>
+      <div className="settings_profile">
+        <h1>{name}</h1>
+        <h2>{email}</h2>
+        <Link to="/home">Lista de Libros</Link>
+        <Link to="/upload">Añadir un Libro</Link>
+        <Link to="/auth/logout">Cerrar Sesión</Link>
       </div>
       <div className="my-books">
         <table>
