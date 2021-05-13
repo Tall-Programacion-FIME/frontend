@@ -14,6 +14,9 @@ import {
   faSignOutAlt,
   faDoorOpen,
   faBook,
+  faEdit,
+  faTrashAlt,
+  faLink,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { isProduction } from "./helpers/warnings";
@@ -28,7 +31,10 @@ library.add(
   faSignInAlt,
   faSignOutAlt,
   faDoorOpen,
-  faBook
+  faBook,
+  faEdit,
+  faTrashAlt,
+  faLink
 );
 
 ReactDOM.render(
