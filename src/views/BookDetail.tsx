@@ -19,9 +19,11 @@ function SellComponent({
   id: number;
   access_token: string;
 }) {
+  const history = useHistory();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await sellBook(id, access_token);
+    history.push("/home");
   };
   if (userEmail === email) {
     return (
