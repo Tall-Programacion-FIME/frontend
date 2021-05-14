@@ -68,7 +68,7 @@ function Profile() {
     <FormLayout>
       <div className="settings_profile">
         <h1>{name}</h1>
-        <h2>{email}</h2>
+        <p>{email}</p>
         <Link to="/home">Lista de Libros</Link>
         <Link to="/upload">Añadir un Libro</Link>
         <Link to="/auth/logout">Cerrar Sesión</Link>

@@ -67,8 +67,6 @@ function BookDetail() {
             Precio: <b>$ {book?.price}</b>
           </span>
 
-          <div style={{ marginBottom: "2rem" }} />
-
           <h1>Datos del vendedor</h1>
           <hr />
           <h2>{user?.name}</h2>
