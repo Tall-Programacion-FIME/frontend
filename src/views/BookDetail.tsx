@@ -103,6 +103,12 @@ function BookDetail() {
           <h2>{user?.name}</h2>
           <h4>Contacto: {user?.email}</h4>
           <div style={{ marginBottom: "2rem" }} />
+          <SellComponent
+            email={email}
+            userEmail={user?.email}
+            access_token={access_token}
+            id={parseInt(id)}
+          />
           {is_admin ? (
             <>
               <button className="delete" onClick={handleDeleteBook}>
@@ -113,14 +119,7 @@ function BookDetail() {
               </button>
             </>
           ) : (
-            <>
-              <SellComponent
-                email={email}
-                userEmail={user?.email}
-                access_token={access_token}
-                id={parseInt(id)}
-              />
-            </>
+            <></>
           )}
         </div>
       </div>
