@@ -7,6 +7,10 @@ const Profile = styled.main`
   margin: 10px auto;
   display: grid;
   grid-template-columns: 1fr 3fr;
+
+  @media screen and (max-width: 490px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export default Profile;
