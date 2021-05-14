@@ -3,8 +3,10 @@ import { getMyInfo } from "api/user";
 import useStore from "store/Auth";
 import userStore from "store/User";
 import { deleteBook, updateBook } from "api/book";
-import FormLayout from "../layout/Forms";
-import { useHistory } from "react-router-dom";
+import FormLayout from "../layout/Profile";
+import { Link, useHistory } from "react-router-dom";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Profile() {
   const history = useHistory();
@@ -64,11 +66,14 @@ function Profile() {
 
   return (
     <FormLayout>
+      <div className="settings_profile">
+        <h1>{name}</h1>
+        <h2>{email}</h2>
+        <Link to="/home">Lista de Libros</Link>
+        <Link to="/upload">Añadir un Libro</Link>
+        <Link to="/auth/logout">Cerrar Sesión</Link>
+      </div>
       <div className="my-books">
-        <div className="form_fullscreen">
-          <h1>Nombre: {name}</h1>
-          <h2>Email: {email}</h2>
-        </div>
         <table>
           <caption>Mis libros</caption>
           <thead>
@@ -99,13 +104,9 @@ function Profile() {
                   ) : (
                     <>
                       <span style={{ paddingRight: "2px" }}>{book.name}</span>
-                      <a href={`/book/${book.id}`}>
-                        <img
-                          style={{ height: "1rem", width: "auto" }}
-                          alt={book.name}
-                          src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEwIDEzYTUgNSAwIDAgMCA3LjU0LjU0bDMtM2E1IDUgMCAwIDAtNy4wNy03LjA3bC0xLjcyIDEuNzEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik0xNCAxMWE1IDUgMCAwIDAtNy41NC0uNTRsLTMgM2E1IDUgMCAwIDAgNy4wNyA3LjA3bDEuNzEtMS43MSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+"
-                        />
-                      </a>
+                      <Link to={`/book/${book.id}`}>
+                        <FontAwesomeIcon icon="link" />
+                      </Link>
                     </>
                   )}
                 </td>
@@ -154,10 +155,10 @@ function Profile() {
                         className="delete"
                         onClick={() => handleDeleteBook(book.id)}
                       >
-                        Eliminar
+                        <FontAwesomeIcon icon="trash-alt" />
                       </button>
                       <button onClick={() => handleEditBook(book.id)}>
-                        Editar
+                        <FontAwesomeIcon icon="edit" />
                       </button>
                     </>
                   )}
