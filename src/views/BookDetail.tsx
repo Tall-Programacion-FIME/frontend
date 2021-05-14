@@ -4,13 +4,28 @@ import { deleteBook, getBook } from "api/book";
 import { useEffect, useState } from "react";
 import { BookModel } from "models/book";
 import { UserModel } from "models/user";
-import { banUser, getUser } from "api/user";
+import { banUser, getUser, getMyInfo } from "api/user";
 import userStore from "store/User";
 import authStore from "store/Auth";
+
+function SellComponent({
+  userEmail,
+  email,
+}: {
+  userEmail: string | undefined;
+  email: string;
+}) {
+  if (userEmail === email) {
+    return <button className="sell">Vender</button>;
+  } else {
+    return <></>;
+  }
+}
 
 function BookDetail() {
   let [book, setBook] = useState<BookModel>();
   let [user, setUser] = useState<UserModel>();
+  const [email, setEmail] = useState("");
   let { id } = useParams<BookDetailParams>();
 
   let { is_admin } = userStore();
@@ -26,12 +41,16 @@ function BookDetail() {
         setBook(book);
         let user = await getUser(book.owner_id);
         setUser(user);
+        const user_info = await getMyInfo(access_token);
+        if (user_info) {
+          setEmail(user_info.email);
+        }
       }
     })();
     return () => {
       mounted = false;
     };
-  }, [id]);
+  }, [id, access_token]);
 
   const handleDeleteBook = async () => {
     let confirmation = window.confirm("Deseas borrar este libro");
@@ -82,7 +101,9 @@ function BookDetail() {
               </button>
             </>
           ) : (
-            <></>
+            <>
+              <SellComponent email={email} userEmail={user?.email} />
+            </>
           )}
         </div>
       </div>

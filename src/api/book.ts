@@ -52,6 +52,13 @@ export async function deleteBook(_id: number, token: string) {
   return response.data;
 }
 
+export async function sellBook(_id: number, token: string) {
+  let response = await axios.delete(path + "book/mark-sold/" + _id, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  return response.data;
+}
+
 export async function searchBook(query: string) {
   try {
     let response = await axios.get<BookModel[]>(path + "book/search/", {
