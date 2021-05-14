@@ -1,7 +1,7 @@
 import { useHistory, useParams } from "react-router-dom";
 import { BookDetailParams } from "models/routeBookDetail";
-import { deleteBook, getBook } from "api/book";
-import { useEffect, useState } from "react";
+import { deleteBook, getBook, sellBook } from "api/book";
+import React, { useEffect, useState } from "react";
 import { BookModel } from "models/book";
 import { UserModel } from "models/user";
 import { banUser, getUser, getMyInfo } from "api/user";
@@ -11,12 +11,24 @@ import authStore from "store/Auth";
 function SellComponent({
   userEmail,
   email,
+  id,
+  access_token,
 }: {
   userEmail: string | undefined;
   email: string;
+  id: number;
+  access_token: string;
 }) {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    await sellBook(id, access_token);
+  };
   if (userEmail === email) {
-    return <button className="sell">Vender</button>;
+    return (
+      <form onSubmit={handleSubmit}>
+        <button className="sell">Vender</button>
+      </form>
+    );
   } else {
     return <></>;
   }
@@ -102,7 +114,12 @@ function BookDetail() {
             </>
           ) : (
             <>
-              <SellComponent email={email} userEmail={user?.email} />
+              <SellComponent
+                email={email}
+                userEmail={user?.email}
+                access_token={access_token}
+                id={parseInt(id)}
+              />
             </>
           )}
         </div>
