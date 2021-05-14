@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 const Profile = styled.main`
-  width: 80%;
+  width: 95%;
+  max-width: 1500px;
   height: 90vh;
   margin: 10px auto;
   display: grid;
