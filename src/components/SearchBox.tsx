@@ -26,7 +26,7 @@ export default function SearchBox() {
 
     const timeoutId = setTimeout(() => searchBooks(), 500);
     return () => clearTimeout(timeoutId);
-  }, [searchBox]);
+  }, [searchBox, books]);
 
   return (
     <div className="form-wrapper">
