@@ -1,9 +1,15 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { create } from "react-test-renderer";
 import App from "./App";
 
-test("renders learn react link", () => {
-  render(<App />);
-  const linkElement = screen.getByText(/sobre ruedas/i);
-  expect(linkElement).toBeInTheDocument();
+let component: any;
+
+describe("<App />", () => {
+  beforeEach(() => {
+    component = create(<App />);
+  });
+
+  it("Renderiza correctamente", () => {
+    expect(component).toBeDefined();
+  });
 });
