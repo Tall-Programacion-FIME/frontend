@@ -7,7 +7,7 @@ import useStore from "store/SearchBooks";
 import WithoutBooks from "components/Books/WithoutBooks";
 
 export default function Home() {
-  const { books, areThereBooks } = useStore();
+  const { books } = useStore();
 
   // useEffect Hook, used for async functions
   useEffect(() => {
@@ -17,8 +17,6 @@ export default function Home() {
       if (mounted) {
         if (books) {
           useStore.setState({ books });
-        } else {
-          useStore.setState({ areThereBooks: false });
         }
       }
     })();
@@ -26,6 +24,8 @@ export default function Home() {
       mounted = false;
     };
   }, []);
+
+  const areThereBooks = books.length > 0;
 
   return (
     <>
