@@ -15,7 +15,9 @@ const About = () => {
             <img src={LogoSVG} className="about_logo" alt="Logo" />
             <p>
               Esta aplicación fue diseñada para la Unidad de Aprendizaje "Taller
-              de Programación"
+              de Programación" En conjunto con la materia de Verificación y
+              Validación de Software, validada por el equipo 6 de la clase
+              EJ2024, Grupo 002.
             </p>
             <p>Sus creadores son:</p>
 
